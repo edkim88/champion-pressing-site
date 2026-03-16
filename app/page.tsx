@@ -103,7 +103,12 @@ export default function Home() {
 
                 <circle cx="700" cy="700" r="22" fill="black" fillOpacity="0.36" />
 
-                <g style={{ transformOrigin: "700px 700px", animation: "spin 26s linear infinite" }}>
+                <g
+  style={{
+    transformOrigin: "700px 700px",
+    animation: "vinyl-marker-spin 26s linear infinite",
+  }}
+>
                   <line
                     x1="700"
                     y1="58"
