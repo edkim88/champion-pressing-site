@@ -1,65 +1,275 @@
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <main className="min-h-screen bg-[#f5f3ee] text-[#111111] overflow-hidden">
+      {/* HERO */}
+      <section className="relative min-h-screen px-7 md:px-10 py-8 flex flex-col justify-between">
+        <nav className="flex items-center justify-between py-4 relative z-20">
+          <Link href="/" className="inline-flex items-center h-[60px]">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/champion-logo.svg"
+              alt="Champion Pressing"
+              width={220}
+              height={60}
+              priority
+              className="h-auto w-[200px] md:w-[220px]"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </Link>
+
+          <div className="flex items-center h-[48px] gap-6 md:gap-10 lg:gap-14 text-[11px] md:text-sm uppercase tracking-[0.12em]">
+            <Link href="/about" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
+              About
+            </Link>
+            <Link href="/pressing" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
+              Pressing
+            </Link>
+            <Link href="/quality" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
+              The Quality
+            </Link>
+            <Link href="/projects" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
+              Projects
+            </Link>
+            <Link
+              href="/quote"
+              className="inline-flex items-center h-full px-7 border border-black/35 hover:bg-black hover:text-[#f5f3ee] transition whitespace-nowrap"
+            >
+              Make a Quote
+            </Link>
+          </div>
+        </nav>
+
+        <div className="relative flex-1 flex items-center z-10">
+          <div className="max-w-7xl w-full">
+            <p className="mb-6 md:mb-8 text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/38">
+              Precision Pressing with Sonic Sensitivity
+            </p>
+
+            <h1 className="text-[15vw] md:text-[9vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase">
+              Pressed
+              <br />
+              for Sound
+            </h1>
+
+            <div className="mt-10 md:mt-14 grid md:grid-cols-12 gap-6">
+              <div className="md:col-span-7">
+                <p className="max-w-2xl text-sm md:text-lg leading-relaxed text-black/70">
+                  Champion Pressing is a cutting-edge vinyl manufacturing
+                  partner for labels, artists, and projects that demand more
+                  than volume — with a workflow shaped by listening, precision,
+                  and deep respect for sonic detail.
+                </p>
+              </div>
+
+              <div className="md:col-span-5 md:pl-10">
+                <div className="grid grid-cols-2 gap-y-3 text-[11px] md:text-xs uppercase tracking-[0.18em] text-black/38">
+                  <span>Based in</span>
+                  <span className="text-black/72">Namyangju, Korea</span>
+
+                  <span>Focus</span>
+                  <span className="text-black/72">Sonic Precision</span>
+
+                  <span>Format</span>
+                  <span className="text-black/72">12&quot; / 10&quot; / 7&quot;</span>
+
+                  <span>Approach</span>
+                  <span className="text-black/72">Precision + Listening</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* VINYL GRAPHIC */}
+          <div className="pointer-events-none absolute right-[-430px] bottom-[-40px] z-0 opacity-75">
+            <div className="origin-bottom-right scale-[0.8] h-[1200px] w-[1200px] md:h-[1400px] md:w-[1400px]">
+              <svg viewBox="0 0 1400 1400" className="h-full w-full" fill="none">
+                <circle cx="700" cy="700" r="650" stroke="black" strokeWidth="2.6" strokeOpacity="0.28" />
+                <circle cx="700" cy="700" r="570" stroke="black" strokeWidth="2.3" strokeOpacity="0.24" />
+                <circle cx="700" cy="700" r="490" stroke="black" strokeWidth="2.1" strokeOpacity="0.2" />
+                <circle cx="700" cy="700" r="410" stroke="black" strokeWidth="1.9" strokeOpacity="0.18" />
+                <circle cx="700" cy="700" r="330" stroke="black" strokeWidth="1.8" strokeOpacity="0.16" />
+                <circle cx="700" cy="700" r="250" stroke="black" strokeWidth="1.7" strokeOpacity="0.14" />
+                <circle cx="700" cy="700" r="170" stroke="black" strokeWidth="1.9" strokeOpacity="0.18" />
+
+                <circle cx="700" cy="700" r="22" fill="black" fillOpacity="0.36" />
+
+                <g style={{ transformOrigin: "700px 700px", animation: "spin 26s linear infinite" }}>
+                  <line
+                    x1="700"
+                    y1="58"
+                    x2="700"
+                    y2="150"
+                    stroke="black"
+                    strokeWidth="2.2"
+                    strokeOpacity="0.22"
+                    strokeLinecap="round"
+                  />
+                  <rect x="696" y="54" width="8" height="8" fill="#e11d48" />
+                </g>
+              </svg>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+
+        <div className="flex items-center justify-between text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/28 relative z-20">
+          <span>Scroll</span>
+          <span>CHAMPION PRESSING 2026. ALL RIGHTS RESERVED.</span>
+        </div>
+      </section>
+
+      {/* BIG IMAGE */}
+      <section className="px-7 md:px-10 py-24 md:py-32">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-10 md:mb-14 overflow-hidden bg-black/5">
+            <Image
+              src="/images/impression-07.jpeg"
+              alt="Champion Pressing production"
+              width={2400}
+              height={1400}
+              className="w-full h-[460px] md:h-[680px] object-cover transition duration-700 hover:scale-[1.02]"
+            />
+          </div>
+
+          {/* CRAFTSMANSHIP INTRO */}
+          <div className="grid md:grid-cols-12 gap-8 items-start mb-20 md:mb-28">
+            <div className="md:col-span-3">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35">
+                Philosophy
+              </p>
+            </div>
+
+            <div className="md:col-span-9">
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight mb-6">
+                Every pressing, regardless of scale, is handled with technical precision and careful listening.
+              </h2>
+
+              <p className="max-w-2xl text-base md:text-lg leading-relaxed text-black/65">
+                From limited runs to larger production volumes, Champion Pressing
+                approaches each record with the same discipline, sensitivity,
+                and attention to sonic detail.
+              </p>
+            </div>
+          </div>
+
+          {/* IMAGE GRID 3 */}
+          <div className="grid md:grid-cols-3 gap-6 mb-20 md:mb-28">
+            <div className="overflow-hidden bg-black/5">
+              <Image
+                src="/images/impression-01.jpeg"
+                alt="Vinyl pressing machine"
+                width={1600}
+                height={2000}
+                className="w-full h-[420px] object-cover transition duration-700 hover:scale-[1.03]"
+              />
+            </div>
+
+            <div className="overflow-hidden bg-black/5">
+              <Image
+                src="/images/impression-02.jpeg"
+                alt="Vinyl pressing process"
+                width={1600}
+                height={2000}
+                className="w-full h-[420px] object-cover transition duration-700 hover:scale-[1.03]"
+              />
+            </div>
+
+            <div className="overflow-hidden bg-black/5">
+              <Image
+                src="/images/impression-03.jpeg"
+                alt="Finished vinyl records"
+                width={1600}
+                height={2000}
+                className="w-full h-[420px] object-cover transition duration-700 hover:scale-[1.03]"
+              />
+            </div>
+          </div>
+
+          {/* STATEMENT */}
+          <div className="my-20 md:my-32">
+            <div className="max-w-4xl">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-6">
+                Craftsmanship
+              </p>
+
+              <h3 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight">
+                Precision is not scale.
+                <br />
+                It is attitude.
+              </h3>
+            </div>
+          </div>
+
+          {/* IMAGE GRID 2 */}
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-20 md:mb-28">
+            <div className="overflow-hidden bg-black/5">
+              <Image
+                src="/images/impression-04.jpeg"
+                alt="Vinyl production detail"
+                width={1600}
+                height={1200}
+                className="w-full h-[420px] md:h-[560px] object-cover transition duration-700 hover:scale-[1.03]"
+              />
+            </div>
+
+            <div className="overflow-hidden bg-black/5 md:translate-y-12">
+              <Image
+                src="/images/impression-05.jpeg"
+                alt="Vinyl pressing close detail"
+                width={1600}
+                height={1200}
+                className="w-full h-[420px] md:h-[560px] object-cover transition duration-700 hover:scale-[1.03]"
+              />
+            </div>
+          </div>
+
+          {/* FINAL IMAGE */}
+          <div className="overflow-hidden bg-black/5 mb-20 md:mb-28">
+            <Image
+              src="/images/impression-06.jpeg"
+              alt="Champion Pressing process"
+              width={2400}
+              height={1400}
+              className="w-full h-[420px] md:h-[620px] object-cover transition duration-700 hover:scale-[1.02]"
+            />
+          </div>
+
+          {/* CLOSING */}
+          <div className="border-t border-black/8 pt-8 md:pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+            <div>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-4">
+                WE ARE CHAMPION PRESSING
+              </p>
+
+              <h3 className="text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-tight">
+                Made with discipline.
+                <br />
+                Heard with clarity.
+              </h3>
+
+              <p className="max-w-xl mt-4 text-sm md:text-base leading-relaxed text-black/60">
+                Pressing is not only production. It is the final stage of how a record is understood.
+              </p>
+            </div>
+
+            <button
+              onClick={scrollToTop}
+              className="inline-flex items-center justify-center border border-black/20 px-5 py-3 text-[11px] md:text-xs uppercase tracking-[0.22em] hover:bg-black hover:text-[#f5f3ee] transition whitespace-nowrap"
+            >
+              Back to Top
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
