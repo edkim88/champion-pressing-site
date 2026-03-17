@@ -206,21 +206,21 @@ export default function About() {
               </p>
             </div>
 
-            <div className="flex gap-4 md:gap-6 items-center">
-              <Link
-                href="/quote"
-                className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[12px] md:text-[14px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
-              >
-                Make a Quote
-              </Link>
-              
-              <button
-                onClick={scrollToTop}
-                className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[9px] md:text-[10px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:border-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
-              >
-                Back to Top
-              </button>
-            </div>
+          <div className="flex gap-4 md:gap-6 items-center">
+            <Link
+              href="/quote"
+              className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[10px] md:text-[14px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
+            >
+              Make a Quote
+            </Link>
+
+            <button
+              onClick={scrollToTop}
+              className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[8px] md:text-[8px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:border-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
+            >
+              Back to Top
+            </button>
+          </div>
           </div>
         </div>
       </section>
