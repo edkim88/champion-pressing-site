@@ -38,7 +38,6 @@ export default function Home() {
             />
           </Link>
 
-          {/* DESKTOP MENU (Visible on LG screens and up) */}
           <div className="hidden lg:flex items-center h-[48px] gap-10 lg:gap-14 text-sm uppercase tracking-[0.12em]">
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href} className="hover:opacity-55 transition">
@@ -53,7 +52,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* MOBILE MENU BUTTON (Visible on screens smaller than LG) */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold z-50 px-2 py-1"
@@ -61,7 +59,6 @@ export default function Home() {
             {isMenuOpen ? "Close" : "Menu"}
           </button>
 
-          {/* MOBILE OVERLAY MENU */}
           <div 
             className={`fixed inset-0 bg-[#f5f3ee] z-40 flex flex-col justify-center items-center gap-8 transition-all duration-500 ease-in-out ${
               isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible -translate-y-5"
@@ -114,13 +111,10 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-y-3 text-[10px] md:text-xs uppercase tracking-[0.18em] text-black/38">
                   <span>Based in</span>
                   <span className="text-black/72">Namyangju, Korea</span>
-
                   <span>Focus</span>
                   <span className="text-black/72">Sonic Precision</span>
-
                   <span>Format</span>
                   <span className="text-black/72">12&quot; / 10&quot; / 7&quot;</span>
-
                   <span>Approach</span>
                   <span className="text-black/72">Precision + Listening</span>
                 </div>
@@ -128,9 +122,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* VINYL GRAPHIC */}
-          <div className="pointer-events-none absolute right-[-430px] bottom-[-40px] z-0 opacity-75 hidden md:block">
-            <div className="origin-bottom-right scale-[0.8] h-[1200px] w-[1200px] md:h-[1400px] md:w-[1400px]">
+          {/* VINYL GRAPHIC: 모바일에서도 보이도록 hidden 제거 및 위치 최적화 */}
+          <div className="pointer-events-none absolute right-[-150px] md:right-[-430px] bottom-[-20px] md:bottom-[-40px] z-0 opacity-60 md:opacity-75">
+            <div className="origin-bottom-right scale-[0.5] md:scale-[0.8] h-[800px] w-[800px] md:h-[1400px] md:w-[1400px]">
               <svg viewBox="0 0 1400 1400" className="h-full w-full" fill="none">
                 <circle cx="700" cy="700" r="650" stroke="black" strokeWidth="2.6" strokeOpacity="0.28" />
                 <circle cx="700" cy="700" r="570" stroke="black" strokeWidth="2.3" strokeOpacity="0.24" />
@@ -168,12 +162,9 @@ export default function Home() {
             />
           </div>
 
-          {/* CRAFTSMANSHIP INTRO */}
           <div className="grid md:grid-cols-12 gap-8 items-start mb-20 md:mb-28">
             <div className="md:col-span-3">
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35">
-                Philosophy
-              </p>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35">Philosophy</p>
             </div>
             <div className="md:col-span-9">
               <h2 className="text-2xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight mb-6">
@@ -187,7 +178,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* IMAGE GRID 3 */}
           <div className="grid md:grid-cols-3 gap-6 mb-20 md:mb-28">
             <div className="overflow-hidden bg-black/5">
               <Image src="/images/impression-01.jpeg" alt="1" width={1600} height={2000} className="w-full h-[320px] md:h-[420px] object-cover transition duration-700 hover:scale-[1.03]" />
@@ -200,7 +190,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* STATEMENT */}
           <div className="my-20 md:my-32">
             <div className="max-w-4xl">
               <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-6">Craftsmanship</p>
@@ -210,7 +199,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* IMAGE GRID 2 */}
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-20 md:mb-28">
             <div className="overflow-hidden bg-black/5">
               <Image src="/images/impression-04.jpeg" alt="4" width={1600} height={1200} className="w-full h-[320px] md:h-[560px] object-cover transition duration-700 hover:scale-[1.03]" />
@@ -220,7 +208,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* CLOSING */}
           <div className="border-t border-black/8 pt-8 md:pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div>
               <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-4">WE ARE CHAMPION PRESSING</p>
@@ -231,9 +218,13 @@ export default function Home() {
                 Pressing is not only production. It is the final stage of how a record is understood.
               </p>
             </div>
-            <button onClick={scrollToTop} className="inline-flex items-center justify-center border border-black/20 px-8 py-4 text-[11px] md:text-xs uppercase tracking-[0.22em] hover:bg-black hover:text-[#f5f3ee] transition whitespace-nowrap">
+            {/* 하단 버튼 div로 통일하여 대칭 확보 */}
+            <div
+              onClick={scrollToTop}
+              className="cursor-pointer inline-flex items-center justify-center border border-black/20 px-8 py-4 text-[11px] md:text-xs uppercase tracking-[0.22em] hover:bg-black hover:text-[#f5f3ee] transition whitespace-nowrap"
+            >
               Back to Top
-            </button>
+            </div>
           </div>
         </div>
       </section>

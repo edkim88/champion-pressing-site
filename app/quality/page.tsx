@@ -212,17 +212,17 @@ export default function QualityPage() {
           <div className="flex gap-4 md:gap-6 items-center">
             <Link
               href="/quote"
-              className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[10px] md:text-[14px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
+              className="flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] leading-none transition-all duration-300 hover:bg-black hover:text-[#f5f3ee] whitespace-nowrap"
             >
               Make a Quote
             </Link>
 
-            <button
+            <div
               onClick={scrollToTop}
-              className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[8px] md:text-[8px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:border-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
+              className="cursor-pointer flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] leading-none transition-all duration-300 hover:bg-black hover:border-black hover:text-[#f5f3ee] whitespace-nowrap"
             >
               Back to Top
-            </button>
+            </div>
           </div>
         </div>
       </section>

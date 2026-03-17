@@ -202,25 +202,26 @@ export default function About() {
                 Ready to press?
               </h3>
               <p className="max-w-xl mt-4 text-sm md:text-base leading-relaxed text-black/60">
-                Let's discuss your next project and bring your sound to physical form.
+                Let&apos;s discuss your next project and bring your sound to physical form.
               </p>
             </div>
 
-          <div className="flex gap-4 md:gap-6 items-center">
-            <Link
-              href="/quote"
-              className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[10px] md:text-[14px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
-            >
-              Make a Quote
-            </Link>
-
-            <button
-              onClick={scrollToTop}
-              className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[8px] md:text-[8px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:border-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
-            >
-              Back to Top
-            </button>
-          </div>
+            {/* 버튼 영역: div를 사용하여 브라우저 기본 버튼 스타일 간섭을 원천 차단 */}
+            <div className="flex gap-4 md:gap-6 items-center">
+              <Link
+                href="/quote"
+                className="flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] leading-none transition-all duration-300 hover:bg-black hover:text-[#f5f3ee] whitespace-nowrap"
+              >
+                Make a Quote
+              </Link>
+              
+              <div
+                onClick={scrollToTop}
+                className="cursor-pointer flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] leading-none transition-all duration-300 hover:bg-black hover:border-black hover:text-[#f5f3ee] whitespace-nowrap"
+              >
+                Back to Top
+              </div>
+            </div>
           </div>
         </div>
       </section>

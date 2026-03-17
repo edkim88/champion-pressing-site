@@ -68,7 +68,7 @@ export default function Pressing() {
             />
           </Link>
 
-          {/* DESKTOP MENU (Visible on LG screens and up) */}
+          {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center h-[48px] gap-10 lg:gap-14 text-sm uppercase tracking-[0.12em]">
             {navLinks.map((link) => (
               <Link 
@@ -155,7 +155,6 @@ export default function Pressing() {
                 index % 2 === 0 ? "md:flex-row-reverse" : ""
               }`}
             >
-              {/* Image Area */}
               <div className="w-full md:w-[55%] bg-black/5 p-8 md:p-12 rounded-sm flex items-center justify-center">
                 <Image
                   src={process.imgSrc}
@@ -166,7 +165,6 @@ export default function Pressing() {
                 />
               </div>
 
-              {/* Text Area */}
               <div className="w-full md:w-[40%]">
                 <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/38 mb-4 border-b border-black/10 pb-4 inline-block">
                   Phase {process.id}
@@ -190,7 +188,7 @@ export default function Pressing() {
             <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-4">
               CONSULTATION
             </p>
-            <h3 className="text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-tight">
+            <h3 className="text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-tight uppercase">
               Unsure about the specs?
             </h3>
             <p className="max-w-xl mt-4 text-sm md:text-base leading-relaxed text-black/60">
@@ -198,20 +196,21 @@ export default function Pressing() {
             </p>
           </div>
 
-         <div className="flex gap-4 md:gap-6 items-center">
+          {/* 버튼 영역: div를 사용하여 태그 간 스타일 차이 완전 제거 */}
+          <div className="flex gap-4 md:gap-6 items-center">
             <Link
               href="/quote"
-              className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[10px] md:text-[14px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
+              className="flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] leading-none transition-all duration-300 hover:bg-black hover:text-[#f5f3ee] whitespace-nowrap"
             >
               Make a Quote
             </Link>
 
-            <button
+            <div
               onClick={scrollToTop}
-              className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[8px] md:text-[px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:border-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
+              className="cursor-pointer flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] leading-none transition-all duration-300 hover:bg-black hover:border-black hover:text-[#f5f3ee] whitespace-nowrap"
             >
               Back to Top
-            </button>
+            </div>
           </div>
         </div>
       </section>
