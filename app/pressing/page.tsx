@@ -1,15 +1,25 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Pressing() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
+
+  const navLinks = [
+    { href: "/about", label: "About" },
+    { href: "/pressing", label: "Pressing" },
+    { href: "/quality", label: "The Quality" },
+    { href: "/projects", label: "Projects" },
+  ];
 
   const processes = [
     {
@@ -46,7 +56,7 @@ export default function Pressing() {
     <main className="min-h-screen bg-[#f5f3ee] text-[#111111] overflow-hidden">
       {/* NAVIGATION */}
       <section className="px-7 md:px-10 pt-8 pb-4">
-        <nav className="flex items-center justify-between py-4 relative z-20">
+        <nav className="flex items-center justify-between py-4 relative z-50">
           <Link href="/" className="inline-flex items-center h-[60px]">
             <Image
               src="/champion-logo.svg"
@@ -54,26 +64,57 @@ export default function Pressing() {
               width={220}
               height={60}
               priority
-              className="h-auto w-[200px] md:w-[220px]"
+              className="h-auto w-[180px] md:w-[220px]"
             />
           </Link>
 
-          <div className="flex items-center h-[48px] gap-6 md:gap-10 lg:gap-14 text-[11px] md:text-sm uppercase tracking-[0.12em]">
-            <Link href="/about" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
-              About
-            </Link>
-            <Link href="/pressing" className="inline-flex items-center h-full px-3 text-black font-semibold transition">
-              Pressing
-            </Link>
-            <Link href="/quality" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
-              The Quality
-            </Link>
-            <Link href="/projects" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
-              Projects
-            </Link>
+          {/* DESKTOP MENU (Visible on LG screens and up) */}
+          <div className="hidden lg:flex items-center h-[48px] gap-10 lg:gap-14 text-sm uppercase tracking-[0.12em]">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.href} 
+                href={link.href} 
+                className={`hover:opacity-55 transition ${link.href === '/pressing' ? 'text-black font-semibold' : ''}`}
+              >
+                {link.label}
+              </Link>
+            ))}
             <Link
               href="/quote"
               className="inline-flex items-center h-full px-7 border border-black/35 hover:bg-black hover:text-[#f5f3ee] transition whitespace-nowrap"
+            >
+              Make a Quote
+            </Link>
+          </div>
+
+          {/* MOBILE MENU BUTTON */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold z-50 px-2 py-1"
+          >
+            {isMenuOpen ? "Close" : "Menu"}
+          </button>
+
+          {/* MOBILE OVERLAY MENU */}
+          <div 
+            className={`fixed inset-0 bg-[#f5f3ee] z-40 flex flex-col justify-center items-center gap-8 transition-all duration-500 ease-in-out ${
+              isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible -translate-y-5"
+            }`}
+          >
+            {navLinks.map((link) => (
+              <Link 
+                key={link.href} 
+                href={link.href} 
+                onClick={() => setIsMenuOpen(false)}
+                className={`text-2xl md:text-3xl uppercase tracking-[0.15em] hover:opacity-50 transition ${link.href === '/pressing' ? 'border-b border-black' : ''}`}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/quote"
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-6 px-10 py-4 border border-black uppercase text-xs md:text-sm tracking-[0.25em] hover:bg-black hover:text-[#f5f3ee] transition"
             >
               Make a Quote
             </Link>
@@ -87,7 +128,7 @@ export default function Pressing() {
           <p className="mb-6 md:mb-8 text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/38">
             The Process
           </p>
-          <h1 className="text-[10vw] md:text-[7.5vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase mb-12 md:mb-16">
+          <h1 className="text-[12vw] md:text-[7.5vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase mb-12 md:mb-16">
             From Master.
             <br />
             To Groove.
@@ -130,7 +171,7 @@ export default function Pressing() {
                 <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/38 mb-4 border-b border-black/10 pb-4 inline-block">
                   Phase {process.id}
                 </p>
-                <h3 className="text-3xl md:text-4xl font-semibold tracking-[-0.03em] mb-6">
+                <h3 className="text-2xl md:text-4xl font-semibold tracking-[-0.03em] mb-6">
                   {process.title}
                 </h3>
                 <p className="text-base md:text-lg leading-relaxed text-black/65">
@@ -160,16 +201,14 @@ export default function Pressing() {
           <div className="flex gap-4 md:gap-6 items-center">
             <Link
               href="/quote"
-              // 폰트 굵기를 font-normal로 명시적 통일
-              className="inline-flex w-[160px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[14px] md:text-[14px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
+              className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[12px] md:text-[14px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
             >
               Make a Quote
             </Link>
 
             <button
               onClick={scrollToTop}
-              // 폰트 굵기를 font-normal로 명시적 통일
-              className="inline-flex w-[160px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[10px] md:text-[10px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:border-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
+              className="inline-flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[10px] md:text-[11px] font-normal uppercase tracking-[0.22em] leading-none appearance-none hover:bg-black hover:border-black hover:text-[#f5f3ee] transition-all duration-300 whitespace-nowrap"
             >
               Back to Top
             </button>

@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -11,11 +14,19 @@ export default function Home() {
     });
   };
 
+  const navLinks = [
+    { href: "/about", label: "About" },
+    { href: "/pressing", label: "Pressing" },
+    { href: "/quality", label: "The Quality" },
+    { href: "/projects", label: "Projects" },
+  ];
+
   return (
     <main className="min-h-screen bg-[#f5f3ee] text-[#111111] overflow-hidden">
-      {/* HERO */}
+      {/* HERO SECTION */}
       <section className="relative min-h-screen px-7 md:px-10 py-8 flex flex-col justify-between">
-        <nav className="flex items-center justify-between py-4 relative z-20">
+        {/* NAVIGATION */}
+        <nav className="flex items-center justify-between py-4 relative z-50">
           <Link href="/" className="inline-flex items-center h-[60px]">
             <Image
               src="/champion-logo.svg"
@@ -23,23 +34,17 @@ export default function Home() {
               width={220}
               height={60}
               priority
-              className="h-auto w-[200px] md:w-[220px]"
+              className="h-auto w-[180px] md:w-[220px]"
             />
           </Link>
 
-          <div className="flex items-center h-[48px] gap-6 md:gap-10 lg:gap-14 text-[11px] md:text-sm uppercase tracking-[0.12em]">
-            <Link href="/about" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
-              About
-            </Link>
-            <Link href="/pressing" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
-              Pressing
-            </Link>
-            <Link href="/quality" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
-              The Quality
-            </Link>
-            <Link href="/projects" className="inline-flex items-center h-full px-3 hover:opacity-55 transition">
-              Projects
-            </Link>
+          {/* DESKTOP MENU (Visible on LG screens and up) */}
+          <div className="hidden lg:flex items-center h-[48px] gap-10 lg:gap-14 text-sm uppercase tracking-[0.12em]">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:opacity-55 transition">
+                {link.label}
+              </Link>
+            ))}
             <Link
               href="/quote"
               className="inline-flex items-center h-full px-7 border border-black/35 hover:bg-black hover:text-[#f5f3ee] transition whitespace-nowrap"
@@ -47,15 +52,49 @@ export default function Home() {
               Make a Quote
             </Link>
           </div>
+
+          {/* MOBILE MENU BUTTON (Visible on screens smaller than LG) */}
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold z-50 px-2 py-1"
+          >
+            {isMenuOpen ? "Close" : "Menu"}
+          </button>
+
+          {/* MOBILE OVERLAY MENU */}
+          <div 
+            className={`fixed inset-0 bg-[#f5f3ee] z-40 flex flex-col justify-center items-center gap-8 transition-all duration-500 ease-in-out ${
+              isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible -translate-y-5"
+            }`}
+          >
+            {navLinks.map((link) => (
+              <Link 
+                key={link.href} 
+                href={link.href} 
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl md:text-3xl uppercase tracking-[0.15em] hover:opacity-50 transition"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/quote"
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-6 px-10 py-4 border border-black uppercase text-xs md:text-sm tracking-[0.25em] hover:bg-black hover:text-[#f5f3ee] transition"
+            >
+              Make a Quote
+            </Link>
+          </div>
         </nav>
 
+        {/* HERO CONTENT */}
         <div className="relative flex-1 flex items-center z-10">
           <div className="max-w-7xl w-full">
             <p className="mb-6 md:mb-8 text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/38">
               Precision Pressing with Sonic Sensitivity
             </p>
 
-            <h1 className="text-[15vw] md:text-[9vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase">
+            <h1 className="text-[14vw] md:text-[9vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase">
               Pressed
               <br />
               for Sound
@@ -72,7 +111,7 @@ export default function Home() {
               </div>
 
               <div className="md:col-span-5 md:pl-10">
-                <div className="grid grid-cols-2 gap-y-3 text-[11px] md:text-xs uppercase tracking-[0.18em] text-black/38">
+                <div className="grid grid-cols-2 gap-y-3 text-[10px] md:text-xs uppercase tracking-[0.18em] text-black/38">
                   <span>Based in</span>
                   <span className="text-black/72">Namyangju, Korea</span>
 
@@ -90,7 +129,7 @@ export default function Home() {
           </div>
 
           {/* VINYL GRAPHIC */}
-          <div className="pointer-events-none absolute right-[-430px] bottom-[-40px] z-0 opacity-75">
+          <div className="pointer-events-none absolute right-[-430px] bottom-[-40px] z-0 opacity-75 hidden md:block">
             <div className="origin-bottom-right scale-[0.8] h-[1200px] w-[1200px] md:h-[1400px] md:w-[1400px]">
               <svg viewBox="0 0 1400 1400" className="h-full w-full" fill="none">
                 <circle cx="700" cy="700" r="650" stroke="black" strokeWidth="2.6" strokeOpacity="0.28" />
@@ -100,25 +139,9 @@ export default function Home() {
                 <circle cx="700" cy="700" r="330" stroke="black" strokeWidth="1.8" strokeOpacity="0.16" />
                 <circle cx="700" cy="700" r="250" stroke="black" strokeWidth="1.7" strokeOpacity="0.14" />
                 <circle cx="700" cy="700" r="170" stroke="black" strokeWidth="1.9" strokeOpacity="0.18" />
-
                 <circle cx="700" cy="700" r="22" fill="black" fillOpacity="0.36" />
-
-                <g
-  style={{
-    transformOrigin: "700px 700px",
-    animation: "vinyl-marker-spin 26s linear infinite",
-  }}
->
-                  <line
-                    x1="700"
-                    y1="58"
-                    x2="700"
-                    y2="150"
-                    stroke="black"
-                    strokeWidth="2.2"
-                    strokeOpacity="0.22"
-                    strokeLinecap="round"
-                  />
+                <g style={{ transformOrigin: "700px 700px", animation: "vinyl-marker-spin 26s linear infinite" }}>
+                  <line x1="700" y1="58" x2="700" y2="150" stroke="black" strokeWidth="2.2" strokeOpacity="0.22" strokeLinecap="round" />
                   <rect x="696" y="54" width="8" height="8" fill="#e11d48" />
                 </g>
               </svg>
@@ -132,7 +155,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BIG IMAGE */}
+      {/* BIG IMAGE & REMAINING SECTIONS */}
       <section className="px-7 md:px-10 py-24 md:py-32">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10 md:mb-14 overflow-hidden bg-black/5">
@@ -141,7 +164,7 @@ export default function Home() {
               alt="Champion Pressing production"
               width={2400}
               height={1400}
-              className="w-full h-[460px] md:h-[680px] object-cover transition duration-700 hover:scale-[1.02]"
+              className="w-full h-[320px] md:h-[680px] object-cover transition duration-700 hover:scale-[1.02]"
             />
           </div>
 
@@ -152,12 +175,10 @@ export default function Home() {
                 Philosophy
               </p>
             </div>
-
             <div className="md:col-span-9">
-              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight mb-6">
+              <h2 className="text-2xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight mb-6">
                 Every pressing, regardless of scale, is handled with technical precision and careful listening.
               </h2>
-
               <p className="max-w-2xl text-base md:text-lg leading-relaxed text-black/65">
                 From limited runs to larger production volumes, Champion Pressing
                 approaches each record with the same discipline, sensitivity,
@@ -169,47 +190,22 @@ export default function Home() {
           {/* IMAGE GRID 3 */}
           <div className="grid md:grid-cols-3 gap-6 mb-20 md:mb-28">
             <div className="overflow-hidden bg-black/5">
-              <Image
-                src="/images/impression-01.jpeg"
-                alt="Vinyl pressing machine"
-                width={1600}
-                height={2000}
-                className="w-full h-[420px] object-cover transition duration-700 hover:scale-[1.03]"
-              />
+              <Image src="/images/impression-01.jpeg" alt="1" width={1600} height={2000} className="w-full h-[320px] md:h-[420px] object-cover transition duration-700 hover:scale-[1.03]" />
             </div>
-
             <div className="overflow-hidden bg-black/5">
-              <Image
-                src="/images/impression-02.jpeg"
-                alt="Vinyl pressing process"
-                width={1600}
-                height={2000}
-                className="w-full h-[420px] object-cover transition duration-700 hover:scale-[1.03]"
-              />
+              <Image src="/images/impression-02.jpeg" alt="2" width={1600} height={2000} className="w-full h-[320px] md:h-[420px] object-cover transition duration-700 hover:scale-[1.03]" />
             </div>
-
             <div className="overflow-hidden bg-black/5">
-              <Image
-                src="/images/impression-03.jpeg"
-                alt="Finished vinyl records"
-                width={1600}
-                height={2000}
-                className="w-full h-[420px] object-cover transition duration-700 hover:scale-[1.03]"
-              />
+              <Image src="/images/impression-03.jpeg" alt="3" width={1600} height={2000} className="w-full h-[320px] md:h-[420px] object-cover transition duration-700 hover:scale-[1.03]" />
             </div>
           </div>
 
           {/* STATEMENT */}
           <div className="my-20 md:my-32">
             <div className="max-w-4xl">
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-6">
-                Craftsmanship
-              </p>
-
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-6">Craftsmanship</p>
               <h3 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight">
-                Precision is not scale.
-                <br />
-                It is attitude.
+                Precision is not scale.<br />It is attitude.
               </h3>
             </div>
           </div>
@@ -217,59 +213,25 @@ export default function Home() {
           {/* IMAGE GRID 2 */}
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-20 md:mb-28">
             <div className="overflow-hidden bg-black/5">
-              <Image
-                src="/images/impression-04.jpeg"
-                alt="Vinyl production detail"
-                width={1600}
-                height={1200}
-                className="w-full h-[420px] md:h-[560px] object-cover transition duration-700 hover:scale-[1.03]"
-              />
+              <Image src="/images/impression-04.jpeg" alt="4" width={1600} height={1200} className="w-full h-[320px] md:h-[560px] object-cover transition duration-700 hover:scale-[1.03]" />
             </div>
-
             <div className="overflow-hidden bg-black/5 md:translate-y-12">
-              <Image
-                src="/images/impression-05.jpeg"
-                alt="Vinyl pressing close detail"
-                width={1600}
-                height={1200}
-                className="w-full h-[420px] md:h-[560px] object-cover transition duration-700 hover:scale-[1.03]"
-              />
+              <Image src="/images/impression-05.jpeg" alt="5" width={1600} height={1200} className="w-full h-[320px] md:h-[560px] object-cover transition duration-700 hover:scale-[1.03]" />
             </div>
-          </div>
-
-          {/* FINAL IMAGE */}
-          <div className="overflow-hidden bg-black/5 mb-20 md:mb-28">
-            <Image
-              src="/images/impression-06.jpeg"
-              alt="Champion Pressing process"
-              width={2400}
-              height={1400}
-              className="w-full h-[420px] md:h-[620px] object-cover transition duration-700 hover:scale-[1.02]"
-            />
           </div>
 
           {/* CLOSING */}
           <div className="border-t border-black/8 pt-8 md:pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div>
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-4">
-                WE ARE CHAMPION PRESSING
-              </p>
-
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-4">WE ARE CHAMPION PRESSING</p>
               <h3 className="text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-tight">
-                Made with discipline.
-                <br />
-                Heard with clarity.
+                Made with discipline.<br />Heard with clarity.
               </h3>
-
               <p className="max-w-xl mt-4 text-sm md:text-base leading-relaxed text-black/60">
                 Pressing is not only production. It is the final stage of how a record is understood.
               </p>
             </div>
-
-            <button
-              onClick={scrollToTop}
-              className="inline-flex items-center justify-center border border-black/20 px-5 py-3 text-[11px] md:text-xs uppercase tracking-[0.22em] hover:bg-black hover:text-[#f5f3ee] transition whitespace-nowrap"
-            >
+            <button onClick={scrollToTop} className="inline-flex items-center justify-center border border-black/20 px-8 py-4 text-[11px] md:text-xs uppercase tracking-[0.22em] hover:bg-black hover:text-[#f5f3ee] transition whitespace-nowrap">
               Back to Top
             </button>
           </div>
