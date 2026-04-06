@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Header from "@/components/Header";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language } = useLanguage();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -14,81 +15,46 @@ export default function Home() {
     });
   };
 
-  const navLinks = [
-    { href: "/about", label: "About" },
-    { href: "/pressing", label: "Pressing" },
-    { href: "/quality", label: "The Quality" },
-    { href: "/projects", label: "Projects" },
-  ];
+  const dict = {
+    en: {
+      heroSub: "Precision Pressing with Sonic Sensitivity",
+      heroDesc: "Champion Pressing is a cutting-edge vinyl manufacturing partner for labels, artists, and projects that demand more than volume — with a workflow shaped by listening, precision, and deep respect for sonic detail.",
+      location: "Korea",
+      focus: "Sonic Precision",
+      materialTitle: "Material",
+      materialDesc: "Audiophile PVC",
+      approach: "Precision + Listening",
+      philDesc: "From limited runs to larger production volumes, Champion Pressing approaches each record with the same discipline, sensitivity, and attention to sonic detail.",
+      footerDesc: "Pressing is not only production. It is the final stage of how a record is understood.",
+      backToTop: "Back to Top"
+    },
+    ko: {
+      heroSub: "사운드에 대한 높은 이해도를 바탕으로 한 정밀 프레싱",
+      heroDesc: <>챔피언 프레싱은 단순한 복제 그 이상의 가치를 추구하는<br className="hidden md:block" />레이블, 아티스트, 그리고 특별한 프로젝트를 위한 최첨단 바이닐(LP) 제조 파트너입니다.<br />깊이 있는 리스닝 경험과 사운드 디테일에 대한 타협 없는 장인 정신을 바탕으로 완벽한 프레싱을 선사합니다.</>,
+      location: "대한민국 남양주",
+      focus: "사운드 정밀도 및 해상력",
+      materialTitle: "핵심 소재",
+      materialDesc: "자체 배합 프리미엄 PVC",
+      approach: "정밀 공정 및 청취 검수",
+      philDesc: <>소량 한정판부터 대규모 프로덕션까지, 챔피언 프레싱은 규모와 타협하지 않습니다.<br />모든 레코드를 동일한 규율, 감각, 그리고 사운드 디테일에 대한 집요한 집중력으로 완성합니다.</>,
+      footerDesc: <>프레싱은 단순한 제조 공정이 아닙니다.<br />레코드에 담긴 음악이 대중에게 어떻게 이해될지 결정하는 가장 중요한 마지막 무대입니다.</>,
+      backToTop: "Back to Top"
+    }
+  };
+  const t = dict[language];
 
   return (
     <main className="min-h-screen bg-[#f5f3ee] text-[#111111] overflow-hidden">
       {/* HERO SECTION */}
       <section className="relative min-h-screen px-7 md:px-10 py-8 flex flex-col justify-between">
         {/* NAVIGATION */}
-        <nav className="flex items-center justify-between py-4 relative z-50">
-          <Link href="/" className="inline-flex items-center h-[60px]">
-            <Image
-              src="/champion-logo.svg"
-              alt="Champion Pressing"
-              width={220}
-              height={60}
-              priority
-              className="h-auto w-[180px] md:w-[220px]"
-            />
-          </Link>
-
-          <div className="hidden lg:flex items-center h-[48px] gap-10 lg:gap-14 text-sm uppercase tracking-[0.12em]">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:opacity-55 transition">
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/quote"
-              className="inline-flex items-center h-full px-7 border border-black/35 hover:bg-black hover:text-[#f5f3ee] transition whitespace-nowrap"
-            >
-              Make a Quote
-            </Link>
-          </div>
-
-          <button 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-[11px] md:text-xs uppercase tracking-[0.2em] font-semibold z-50 px-2 py-1"
-          >
-            {isMenuOpen ? "Close" : "Menu"}
-          </button>
-
-          <div 
-            className={`fixed inset-0 bg-[#f5f3ee] z-40 flex flex-col justify-center items-center gap-8 transition-all duration-500 ease-in-out ${
-              isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible -translate-y-5"
-            }`}
-          >
-            {navLinks.map((link) => (
-              <Link 
-                key={link.href} 
-                href={link.href} 
-                onClick={() => setIsMenuOpen(false)}
-                className="text-2xl md:text-3xl uppercase tracking-[0.15em] hover:opacity-50 transition"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/quote"
-              onClick={() => setIsMenuOpen(false)}
-              className="mt-6 px-10 py-4 border border-black uppercase text-xs md:text-sm tracking-[0.25em] hover:bg-black hover:text-[#f5f3ee] transition"
-            >
-              Make a Quote
-            </Link>
-          </div>
-        </nav>
+        <Header />
 
         {/* HERO CONTENT */}
         <div className="relative flex-1 flex items-center z-10">
           <div className="max-w-7xl w-full">
-            <p className="mb-6 md:mb-8 text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/38">
-              Precision Pressing with Sonic Sensitivity
+            <p className="mb-6 md:mb-8 text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/38">
+              {t.heroSub}
             </p>
 
             <h1 className="text-[14vw] md:text-[9vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase">
@@ -99,30 +65,26 @@ export default function Home() {
 
             <div className="mt-10 md:mt-14 grid md:grid-cols-12 gap-6">
               <div className="md:col-span-7">
-                <p className="max-w-2xl text-sm md:text-lg leading-relaxed text-black/70">
-                  Champion Pressing is a cutting-edge vinyl manufacturing
-                  partner for labels, artists, and projects that demand more
-                  than volume — with a workflow shaped by listening, precision,
-                  and deep respect for sonic detail.
+                <p className="max-w-2xl text-base md:text-lg leading-relaxed text-black/70 break-keep">
+                  {t.heroDesc}
                 </p>
               </div>
 
               <div className="md:col-span-5 md:pl-10">
                 <div className="grid grid-cols-2 gap-y-3 text-[10px] md:text-xs uppercase tracking-[0.18em] text-black/38">
                   <span>Based in</span>
-                  <span className="text-black/72">Namyangju, Korea</span>
+                  <span className="text-black/72">{t.location}</span>
                   <span>Focus</span>
-                  <span className="text-black/72">Sonic Precision</span>
-                  <span>Format</span>
-                  <span className="text-black/72">12&quot; / 10&quot; / 7&quot;</span>
+                  <span className="text-black/72">{t.focus}</span>
+                  <span>{t.materialTitle}</span>
+                  <span className="text-black/72">{t.materialDesc}</span>
                   <span>Approach</span>
-                  <span className="text-black/72">Precision + Listening</span>
+                  <span className="text-black/72">{t.approach}</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* VINYL GRAPHIC: 모바일에서도 보이도록 hidden 제거 및 위치 최적화 */}
           <div className="pointer-events-none absolute right-[-150px] md:right-[-430px] bottom-[-20px] md:bottom-[-40px] z-0 opacity-60 md:opacity-75">
             <div className="origin-bottom-right scale-[0.5] md:scale-[0.8] h-[800px] w-[800px] md:h-[1400px] md:w-[1400px]">
               <svg viewBox="0 0 1400 1400" className="h-full w-full" fill="none">
@@ -164,16 +126,14 @@ export default function Home() {
 
           <div className="grid md:grid-cols-12 gap-8 items-start mb-20 md:mb-28">
             <div className="md:col-span-3">
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35">Philosophy</p>
+              <p className="text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/35">Philosophy</p>
             </div>
             <div className="md:col-span-9">
-              <h2 className="text-2xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight mb-6">
+              <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight mb-6">
                 Every pressing, regardless of scale, is handled with technical precision and careful listening.
               </h2>
-              <p className="max-w-2xl text-base md:text-lg leading-relaxed text-black/65">
-                From limited runs to larger production volumes, Champion Pressing
-                approaches each record with the same discipline, sensitivity,
-                and attention to sonic detail.
+              <p className="max-w-2xl text-sm md:text-base leading-relaxed text-black/65 break-keep">
+                {t.philDesc}
               </p>
             </div>
           </div>
@@ -192,7 +152,7 @@ export default function Home() {
 
           <div className="my-20 md:my-32">
             <div className="max-w-4xl">
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-6">Craftsmanship</p>
+              <p className="text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/35 mb-6">Craftsmanship</p>
               <h3 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight">
                 Precision is not scale.<br />It is attitude.
               </h3>
@@ -210,20 +170,19 @@ export default function Home() {
 
           <div className="border-t border-black/8 pt-8 md:pt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div>
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/35 mb-4">WE ARE CHAMPION PRESSING</p>
+              <p className="text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/35 mb-4">WE ARE CHAMPION PRESSING</p>
               <h3 className="text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-tight">
                 Made with discipline.<br />Heard with clarity.
               </h3>
-              <p className="max-w-xl mt-4 text-sm md:text-base leading-relaxed text-black/60">
-                Pressing is not only production. It is the final stage of how a record is understood.
+              <p className="max-w-xl mt-4 text-sm md:text-base leading-relaxed text-black/60 break-keep">
+                {t.footerDesc}
               </p>
             </div>
-            {/* 하단 버튼 div로 통일하여 대칭 확보 */}
             <div
               onClick={scrollToTop}
-              className="cursor-pointer inline-flex items-center justify-center border border-black/20 px-8 py-4 text-[11px] md:text-xs uppercase tracking-[0.22em] hover:bg-black hover:text-[#f5f3ee] transition whitespace-nowrap"
+              className="cursor-pointer inline-flex items-center justify-center border border-black/20 px-8 py-4 text-[11px] md:text-xs uppercase tracking-[0.22em] hover:bg-black/20 transition whitespace-nowrap"
             >
-              Back to Top
+              {t.backToTop}
             </div>
           </div>
         </div>
