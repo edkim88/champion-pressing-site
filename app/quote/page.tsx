@@ -99,7 +99,11 @@ export default function QuotePage() {
       noticesTitle: "Notices",
       notice1: "The above estimate covers Record Pressing + Center Labels (CMYK printed).",
       notice2: "Vinyl mastering, print packaging (jackets, inserts), and VAT are not included.",
-      notice3: "Final quotes may vary based on exact color selection and packaging specs. Please contact us for an official invoice."
+      notice3: "Final quotes may vary based on exact color selection and packaging specs. Please contact us for an official invoice.",
+      inquiryTitle: "Ready to Press?",
+      inquiryDesc: "The calculation above is an estimate. For an accurate quote including test pressings, custom packaging, and specific delivery schedules, please fill out our official project inquiry form.",
+      inquiryBtn: "Submit Order Inquiry",
+      formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdzbqsmw9AV_nORKQwmsOgEo9EZpA51lcSwiMzJj95mQv09gQ/viewform"
     },
     ko: {
       title: "Make a Quote",
@@ -120,7 +124,11 @@ export default function QuotePage() {
       noticesTitle: "Notices",
       notice1: "본 견적은 '바이닐 알판(Record Pressing)' 및 '풀 컬러 라벨 인쇄(Center Labels)'가 포함된 기준가입니다.",
       notice2: "바이닐 마스터링(커팅), 인쇄물(자켓, 인서트 등) 및 부가세(VAT)는 본 견적에 포함되어 있지 않습니다.",
-      notice3: "선택하시는 세부 사양 및 컬러 배합에 따라 최종 단가가 변동될 수 있습니다. 보다 정확한 산출을 원하시면 담당자에게 문의해 주십시오."
+      notice3: "선택하시는 세부 사양 및 컬러 배합에 따라 최종 단가가 변동될 수 있습니다. 보다 정확한 산출을 원하시면 담당자에게 문의해 주십시오.",
+      inquiryTitle: "프로젝트 시작하기",
+      inquiryDesc: "위 계산기를 통해 대략적인 예산을 확인하셨다면, 이제 저희와 함께 솔루션을 완성할 차례입니다. 맞춤형 패키지 옵션과 구체적인 생산 일정을 조율하기 위해 아래 폼을 가볍게 작성해 주세요.",
+      inquiryBtn: "세부 견적 및 상담 접수하기",
+      formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdzbqsmw9AV_nORKQwmsOgEo9EZpA51lcSwiMzJj95mQv09gQ/viewform"
     }
   };
   const t = dict[language];
@@ -263,8 +271,29 @@ export default function QuotePage() {
           </div>
         </div>
 
+        {/* INQUIRY CTA SECTION */}
+        <div className="bg-white border border-black/10 shadow-md p-10 md:p-16 mb-16 text-center flex flex-col items-center rounded-sm">
+          <p className="text-[10px] md:text-[12px] font-semibold uppercase tracking-[0.28em] text-black/60 mb-5">
+            NEXT STEP
+          </p>
+          <h3 className="text-3xl md:text-5xl font-bold tracking-[-0.03em] text-black mb-6">
+            {t.inquiryTitle}
+          </h3>
+          <p className="max-w-2xl text-base md:text-lg font-medium leading-relaxed text-black/80 break-keep mb-10">
+            {t.inquiryDesc}
+          </p>
+          <a
+            href={t.formUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-[54px] md:h-[60px] items-center justify-center border-2 border-black bg-transparent text-black px-12 md:px-16 text-[13px] md:text-[14px] font-bold uppercase tracking-[0.1em] rounded-full transition-all duration-300 hover:bg-black/5 hover:-translate-y-0.5"
+          >
+            {t.inquiryBtn}
+          </a>
+        </div>
+
         {/* 안내사항 */}
-        <div className="border-t border-black/10 pt-10">
+        <div className="pt-8 mb-10">
           <h3 className="text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/40 mb-6">
             {t.noticesTitle}
           </h3>

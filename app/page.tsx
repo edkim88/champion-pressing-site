@@ -26,19 +26,21 @@ export default function Home() {
       approach: "Precision + Listening",
       philDesc: "From limited runs to larger production volumes, Champion Pressing approaches each record with the same discipline, sensitivity, and attention to sonic detail.",
       footerDesc: "Pressing is not only production. It is the final stage of how a record is understood.",
-      backToTop: "Back to Top"
+      makeQuoteBtn: "Make a Quote",
+      backToTopBtn: "Back to Top"
     },
     ko: {
       heroSub: "사운드에 대한 높은 이해도를 바탕으로 한 정밀 프레싱",
-      heroDesc: <>챔피언 프레싱은 단순한 복제 그 이상의 가치를 추구하는<br className="hidden md:block" />레이블, 아티스트, 그리고 특별한 프로젝트를 위한 최첨단 바이닐(LP) 제조 파트너입니다.<br />깊이 있는 리스닝 경험과 사운드 디테일에 대한 타협 없는 장인 정신을 바탕으로 완벽한 프레싱을 선사합니다.</>,
+      heroDesc: <>챔피언 프레싱은 단순한 복제 그 이상의 가치를 추구하는<br className="hidden md:block" />레이블, 아티스트, 그리고 특별한 프로젝트를 위한 최첨단 바이닐(LP) 제조 파트너입니다.<br className="hidden md:block" />깊이 있는 리스닝 경험과 사운드 디테일에 대한 타협 없는 장인 정신을 바탕으로 완벽한 프레싱을 선사합니다.</>,
       location: "대한민국 남양주",
       focus: "사운드 정밀도 및 해상력",
       materialTitle: "핵심 소재",
       materialDesc: "자체 배합 프리미엄 PVC",
       approach: "정밀 공정 및 청취 검수",
-      philDesc: <>소량 한정판부터 대규모 프로덕션까지, 챔피언 프레싱은 규모와 타협하지 않습니다.<br />모든 레코드를 동일한 규율, 감각, 그리고 사운드 디테일에 대한 집요한 집중력으로 완성합니다.</>,
-      footerDesc: <>프레싱은 단순한 제조 공정이 아닙니다.<br />레코드에 담긴 음악이 대중에게 어떻게 이해될지 결정하는 가장 중요한 마지막 무대입니다.</>,
-      backToTop: "Back to Top"
+      philDesc: <>소량 한정판부터 대규모 프로덕션까지, 챔피언 프레싱은 규모와 타협하지 않습니다.<br className="hidden md:block" />모든 레코드를 동일한 규율, 감각, 그리고 사운드 디테일에 대한 집요한 집중력으로 완성합니다.</>,
+      footerDesc: <>프레싱은 단순한 제조 공정이 아닙니다.<br className="hidden md:block" />레코드에 담긴 음악이 대중에게 어떻게 이해될지 결정하는 가장 중요한 마지막 무대입니다.</>,
+      makeQuoteBtn: "Make a Quote",
+      backToTopBtn: "Back to Top"
     }
   };
   const t = dict[language];
@@ -68,6 +70,14 @@ export default function Home() {
                 <p className="max-w-2xl text-base md:text-lg leading-relaxed text-black/70 break-keep">
                   {t.heroDesc}
                 </p>
+                <div className="mt-8 md:mt-10">
+                  <Link
+                    href="/quote"
+                    className="inline-flex items-center justify-center border border-black bg-transparent text-black px-8 py-4 text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] transition-all duration-300 hover:bg-black/20 whitespace-nowrap"
+                  >
+                    {t.makeQuoteBtn}
+                  </Link>
+                </div>
               </div>
 
               <div className="md:col-span-5 md:pl-10">
@@ -178,11 +188,19 @@ export default function Home() {
                 {t.footerDesc}
               </p>
             </div>
-            <div
-              onClick={scrollToTop}
-              className="cursor-pointer inline-flex items-center justify-center border border-black/20 px-8 py-4 text-[11px] md:text-xs uppercase tracking-[0.22em] hover:bg-black/20 transition whitespace-nowrap"
-            >
-              {t.backToTop}
+            <div className="flex gap-4 md:gap-6 items-center mt-8 md:mt-0">
+              <Link
+                href="/quote"
+                className="flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black bg-transparent text-black text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] leading-none transition-all duration-300 hover:bg-black/20 whitespace-nowrap"
+              >
+                {t.makeQuoteBtn}
+              </Link>
+              <div
+                onClick={scrollToTop}
+                className="cursor-pointer flex w-[140px] md:w-[180px] h-[48px] md:h-[54px] items-center justify-center border border-black/20 bg-transparent text-black text-[10px] md:text-[11px] font-normal uppercase tracking-[0.15em] leading-none transition-all duration-300 hover:bg-black/20 hover:border-black/20 whitespace-nowrap"
+              >
+                {t.backToTopBtn}
+              </div>
             </div>
           </div>
         </div>

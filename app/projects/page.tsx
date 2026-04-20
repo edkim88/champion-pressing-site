@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Header from "@/components/Header";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -9,68 +9,626 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const MOCK_PROJECTS = [
   {
     id: 1,
-    title: "Midnight Sessions",
-    artist: "The Velvet Underground",
-    image: "/images/impression-01.jpeg",
-    tags: ["Black", "Gatefold", "12 Inch"],
+    title: "232 Compilation",
+    artist: "Champion Pressing Archive",
+    image: "/images/projects/project_v2_1.jpeg",
+    tags: ["Black Vinyl", "Single Pocket"]
   },
   {
     id: 2,
-    title: "Sonic Waves",
-    artist: "Future Islands",
-    image: "/images/impression-02.jpeg",
-    tags: ["Clear", "Single Sleeve", "12 Inch"],
+    title: "Color Papaer Hotel",
+    artist: "87 Dance",
+    image: "/images/projects/project_v2_2.jpeg",
+    tags: ["Black Vinyl", "Single Pocket"]
   },
   {
     id: 3,
-    title: "Analog Dreams",
-    artist: "Synth City",
-    image: "/images/impression-03.jpeg",
-    tags: ["Splatter", "Gatefold", "12 Inch"],
+    title: "A-List Traxx Vol.3",
+    artist: "Champion Pressing Archive",
+    image: "/images/projects/project_v2_3.jpeg",
+    tags: ["Disco Sleeve", "Black Vinyl"]
   },
   {
     id: 4,
-    title: "Urban Echoes",
-    artist: "Metro Boomin",
-    image: "/images/impression-04.jpeg",
-    tags: ["Black", "Single Sleeve", "10 Inch"],
+    title: "Le Musk",
+    artist: "A.R Rahman",
+    image: "/images/projects/project_v2_4.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
   },
   {
     id: 5,
-    title: "Classic Hits",
-    artist: "Various Artists",
-    image: "/images/impression-05.jpeg",
-    tags: ["Marbled", "Box Set", "12 Inch"],
+    title: "Le Musk",
+    artist: "A.R Rahman",
+    image: "/images/projects/project_v2_5.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
   },
   {
     id: 6,
-    title: "Acoustic Live",
-    artist: "John Mayer",
-    image: "/images/impression-06.jpeg",
-    tags: ["Black", "Gatefold", "12 Inch"],
+    title: "The Essential",
+    artist: "AOMG",
+    image: "/images/projects/project_v2_6.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
   },
   {
     id: 7,
-    title: "Deep House Grooves",
-    artist: "DJ Snake",
-    image: "/images/process-01 L2.jpeg",
-    tags: ["Splatter", "Single Sleeve", "12 Inch"],
+    title: "Glass House 10th",
+    artist: "Antidote Project",
+    image: "/images/projects/project_v2_7.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
   },
   {
     id: 8,
-    title: "Indie Rock Anthems",
-    artist: "Arctic Monkeys",
-    image: "/images/process-02 L.jpeg",
-    tags: ["Clear", "Gatefold", "7 Inch"],
+    title: "Free the Beast",
+    artist: "B-Free",
+    image: "/images/projects/project_v2_8.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
   },
+  {
+    id: 9,
+    title: "BRLLNT IS BACK",
+    artist: "BRLLNT",
+    image: "/images/projects/project_v2_9.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 10,
+    title: "East Shore",
+    artist: "Bronze",
+    image: "/images/projects/project_v2_10.jpeg",
+    tags: ["Gate Fold", "Colored Vinyl", "Black Vinyl"]
+  },
+  {
+    id: 11,
+    title: "Free Verse",
+    artist: "CADEJO",
+    image: "/images/projects/project_v2_11.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
+  },
+  {
+    id: 12,
+    title: "ION",
+    artist: "CIFIAK",
+    image: "/images/projects/project_v2_12.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 13,
+    title: "Pickpocket EP",
+    artist: "ChiChi",
+    image: "/images/projects/project_v2_13.jpeg",
+    tags: ["Black Vinyl", "Disco Sleeve"]
+  },
+  {
+    id: 14,
+    title: "Diff",
+    artist: "Coogie",
+    image: "/images/projects/project_v2_14.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 15,
+    title: "Can I Love",
+    artist: "Cosmic Boy",
+    image: "/images/projects/project_v2_15.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 16,
+    title: "Can I Not",
+    artist: "Cosmic Boy",
+    image: "/images/projects/project_v2_16.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 17,
+    title: "DJ MAX Compilation",
+    artist: "Champion Pressing Archive",
+    image: "/images/projects/project_v2_17.jpeg",
+    tags: ["Gate Fold", "Colored Vinyl"]
+  },
+  {
+    id: 18,
+    title: "Lovers 20th Tribute",
+    artist: "DJ Soulscape",
+    image: "/images/projects/project_v2_18.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 19,
+    title: "Reaching Out",
+    artist: "DJ Spray",
+    image: "/images/projects/project_v2_19.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 20,
+    title: "Soundbwoy 2",
+    artist: "DJ co.kr",
+    image: "/images/projects/project_v2_20.jpeg",
+    tags: ["Disco Sleeve", "Black Vinyl"]
+  },
+  {
+    id: 21,
+    title: "Deux X Vans",
+    artist: "Champion Pressing Archive",
+    image: "/images/projects/project_v2_21.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 22,
+    title: "objects",
+    artist: "Fandisk",
+    image: "/images/projects/project_v2_22.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 23,
+    title: "Nomarhythm Textile",
+    artist: "Fujiwara Hiroshi",
+    image: "/images/projects/project_v2_23.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 24,
+    title: "Memories..",
+    artist: "Homeboy",
+    image: "/images/projects/project_v2_24.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 25,
+    title: "미소예찬",
+    artist: "Hookuo, JUE",
+    image: "/images/projects/project_v2_25.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 26,
+    title: "Readmission",
+    artist: "Huckleberry P",
+    image: "/images/projects/project_v2_26.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 27,
+    title: "The Adam",
+    artist: "ILHOON",
+    image: "/images/projects/project_v2_27.jpeg",
+    tags: ["Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 28,
+    title: "Album About You",
+    artist: "JAEHA",
+    image: "/images/projects/project_v2_28.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 29,
+    title: "Lit",
+    artist: "JUSTHIS",
+    image: "/images/projects/project_v2_29.jpeg",
+    tags: ["Gate Fold", "Colored Vinyl"]
+  },
+  {
+    id: 30,
+    title: "Podo",
+    artist: "Jambino",
+    image: "/images/projects/project_v2_30.jpeg",
+    tags: ["Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 31,
+    title: "Sax And The City",
+    artist: "Jason Lee",
+    image: "/images/projects/project_v2_31.jpeg",
+    tags: ["Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 32,
+    title: "All You Wanted",
+    artist: "Jay Park",
+    image: "/images/projects/project_v2_32.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
+  },
+  {
+    id: 33,
+    title: "Beutiful",
+    artist: "Jongho",
+    image: "/images/projects/project_v2_33.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 34,
+    title: "Inside Out",
+    artist: "Kardi",
+    image: "/images/projects/project_v2_34.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 35,
+    title: "Kasina Playlist 2024",
+    artist: "Kasina",
+    image: "/images/projects/project_v2_35.jpeg",
+    tags: ["Disco Sleeve", "Black Vinyl"]
+  },
+  {
+    id: 36,
+    title: "Beige",
+    artist: "Kid Milli",
+    image: "/images/projects/project_v2_36.jpeg",
+    tags: ["Gate Fold", "Colored Vinyl"]
+  },
+  {
+    id: 37,
+    title: "It's on me",
+    artist: "L-Like",
+    image: "/images/projects/project_v2_37.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 38,
+    title: "Phil",
+    artist: "L-Like",
+    image: "/images/projects/project_v2_38.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 39,
+    title: "AAA",
+    artist: "Lil Moshpit",
+    image: "/images/projects/project_v2_39.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 40,
+    title: "K-Flip",
+    artist: "Lil Moshpit, Sik-K",
+    image: "/images/projects/project_v2_40.jpeg",
+    tags: ["Special", "Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 41,
+    title: "Mindspray Vs DJ Cokr",
+    artist: "Champion Pressing Archive",
+    image: "/images/projects/project_v2_41.jpeg",
+    tags: ["Disco Sleeve", "Black Vinyl"]
+  },
+  {
+    id: 42,
+    title: "TRIPONOEL",
+    artist: "Noel",
+    image: "/images/projects/project_v2_42.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 43,
+    title: "Luv-Fi",
+    artist: "Oceanfromtheblue",
+    image: "/images/projects/project_v2_43.jpeg",
+    tags: ["Black Vinyl", "Single Pocket"]
+  },
+  {
+    id: 44,
+    title: "탑승수속",
+    artist: "Okasian",
+    image: "/images/projects/project_v2_44.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 45,
+    title: "Poem V",
+    artist: "Owen",
+    image: "/images/projects/project_v2_45.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
+  },
+  {
+    id: 46,
+    title: "Poem V",
+    artist: "Owen",
+    image: "/images/projects/project_v2_46.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
+  },
+  {
+    id: 47,
+    title: "P.O.E",
+    artist: "Owen Ovadoz",
+    image: "/images/projects/project_v2_47.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 48,
+    title: "Narcissism",
+    artist: "Oxymosoon",
+    image: "/images/projects/project_v2_48.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 49,
+    title: "For The Poser",
+    artist: "Oygli",
+    image: "/images/projects/project_v2_49.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 50,
+    title: "Dirt",
+    artist: "Paloalto",
+    image: "/images/projects/project_v2_50.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 51,
+    title: "Nagul Nagulstan",
+    artist: "Parvaaz",
+    image: "/images/projects/project_v2_51.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
+  },
+  {
+    id: 52,
+    title: "Nagul. Na Gulistan",
+    artist: "Parvaaz",
+    image: "/images/projects/project_v2_52.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
+  },
+  {
+    id: 53,
+    title: "Pop Off",
+    artist: "Ph-1",
+    image: "/images/projects/project_v2_53.jpeg",
+    tags: ["Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 54,
+    title: "Bury",
+    artist: "Punchnello",
+    image: "/images/projects/project_v2_54.jpeg",
+    tags: ["Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 55,
+    title: "흰수염고래 알판",
+    artist: "QWER",
+    image: "/images/projects/project_v2_55.jpeg",
+    tags: ["Box Set", "Colored Vinyl", "Special"]
+  },
+  {
+    id: 56,
+    title: "흰수염고래",
+    artist: "Qwer",
+    image: "/images/projects/project_v2_56.jpeg",
+    tags: ["Box Set", "Colored Vinyl", "Special"]
+  },
+  {
+    id: 57,
+    title: "SOSEOL -POV",
+    artist: "Champion Pressing Archive",
+    image: "/images/projects/project_v2_57.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 58,
+    title: "Miniseries 2",
+    artist: "SUMIN, SLOM",
+    image: "/images/projects/project_v2_58.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
+  },
+  {
+    id: 59,
+    title: "Anthology",
+    artist: "Sam Kim",
+    image: "/images/projects/project_v2_59.jpeg",
+    tags: ["Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 60,
+    title: "BALC",
+    artist: "Shortfinger",
+    image: "/images/projects/project_v2_60.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
+  },
+  {
+    id: 61,
+    title: "Weather Report",
+    artist: "Slom",
+    image: "/images/projects/project_v2_61.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 62,
+    title: "Solabeam Records Compilation",
+    artist: "Champion Pressing Archive",
+    image: "/images/projects/project_v2_62.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 63,
+    title: "Original Soundtrack 2",
+    artist: "Stellar Blade",
+    image: "/images/projects/project_v2_63.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 64,
+    title: "Original Soundtrack",
+    artist: "Stellar Blade",
+    image: "/images/projects/project_v2_64.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 65,
+    title: "예언",
+    artist: "Studio360",
+    image: "/images/projects/project_v2_65.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 66,
+    title: "Sichimi",
+    artist: "Sumin",
+    image: "/images/projects/project_v2_66.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 67,
+    title: "Inevitable",
+    artist: "Superjunior D&E",
+    image: "/images/projects/project_v2_67.jpeg",
+    tags: ["Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 68,
+    title: "TOTO",
+    artist: "Toil",
+    image: "/images/projects/project_v2_68.jpeg",
+    tags: ["Colored Vinyl", "Single Pocket"]
+  },
+  {
+    id: 69,
+    title: "Tree Pose",
+    artist: "Wack",
+    image: "/images/projects/project_v2_69.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 70,
+    title: "Comma",
+    artist: "Woo",
+    image: "/images/projects/project_v2_70.jpeg",
+    tags: ["Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 71,
+    title: "Modern Funk & Edits",
+    artist: "XL Middleton",
+    image: "/images/projects/project_v2_71.jpeg",
+    tags: ["Disco Sleeve", "Black Vinyl"]
+  },
+  {
+    id: 72,
+    title: "Moonshot",
+    artist: "XXOK",
+    image: "/images/projects/project_v2_72.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 73,
+    title: "I Just Can't Control My Feet!",
+    artist: "Xin Seha",
+    image: "/images/projects/project_v2_73.jpeg",
+    tags: ["Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 74,
+    title: "Lupeternal",
+    artist: "Yoon Seok Cheol",
+    image: "/images/projects/project_v2_74.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 75,
+    title: "살아숨셔4",
+    artist: "Yumdda",
+    image: "/images/projects/project_v2_75.jpeg",
+    tags: ["Special", "Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 76,
+    title: "oceanfromtheblue",
+    artist: "oceanfromtheblue",
+    image: "/images/projects/project_v2_76.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 77,
+    title: "Object",
+    artist: "구원찬",
+    image: "/images/projects/project_v2_77.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 78,
+    title: "Anthology",
+    artist: "권진아",
+    image: "/images/projects/project_v2_78.jpeg",
+    tags: ["Colored Vinyl", "Single Pocket"]
+  },
+  {
+    id: 79,
+    title: "Soul Pop City",
+    artist: "나얼",
+    image: "/images/projects/project_v2_79.jpeg",
+    tags: ["Black Vinyl", "Single Pocket"]
+  },
+  {
+    id: 80,
+    title: "Blessed",
+    artist: "문수진",
+    image: "/images/projects/project_v2_80.jpeg",
+    tags: ["Black Vinyl", "Single Pocket"]
+  },
+  {
+    id: 81,
+    title: "빛나는 스트라이크",
+    artist: "신인류",
+    image: "/images/projects/project_v2_81.jpeg",
+    tags: ["Colored Vinyl", "Gate Fold"]
+  },
+  {
+    id: 82,
+    title: "빛나는스트라이크",
+    artist: "신인류",
+    image: "/images/projects/project_v2_82.jpeg",
+    tags: ["Colored Vinyl", "Gate Fold"]
+  },
+  {
+    id: 83,
+    title: "안녕 광석이형 Compilation",
+    artist: "Champion Pressing Archive",
+    image: "/images/projects/project_v2_83.jpeg",
+    tags: ["Single Pocket", "Colored Vinyl"]
+  },
+  {
+    id: 84,
+    title: "나의 여름은 아직 안 끝났어",
+    artist: "윤석철 트리오",
+    image: "/images/projects/project_v2_84.jpeg",
+    tags: ["Gate Fold", "Black Vinyl"]
+  },
+  {
+    id: 85,
+    title: "Original Soundtrack",
+    artist: "이 별에 필요한",
+    image: "/images/projects/project_v2_85.jpeg",
+    tags: ["Single Pocket", "Black Vinyl"]
+  },
+  {
+    id: 86,
+    title: "4 only",
+    artist: "이하이",
+    image: "/images/projects/project_v2_86.jpeg",
+    tags: ["Colored Vinyl", "Single Pocket"]
+  },
+  {
+    id: 87,
+    title: "FRR",
+    artist: "죠지",
+    image: "/images/projects/project_v2_87.jpeg",
+    tags: ["Black Vinyl", "Single Pocket"]
+  }
 ];
 
-const ALL_TAGS = Array.from(
-  new Set(MOCK_PROJECTS.flatMap((project) => project.tags))
-).sort();
+const COLOR_TAGS = ["Black Vinyl", "Colored Vinyl", "Special"];
+const JACKET_TAGS = [
+  "Single Pocket",
+  "Gate Fold",
+  "Disco Sleeve",
+  "Box Set"
+];
 
 export default function ProjectsPage() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [shuffledProjects, setShuffledProjects] = useState(MOCK_PROJECTS);
   const { language } = useLanguage();
 
   const dict = {
@@ -88,16 +646,30 @@ export default function ProjectsPage() {
   const t = dict[language];
 
   const toggleTag = (tag: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag)
-        ? prev.filter((t) => t !== tag)
-        : [...prev, tag]
-    );
+    setSelectedTags((prev) => {
+      if (prev.includes(tag)) {
+        return prev.filter((t) => t !== tag);
+      }
+
+      let nextTags = [...prev];
+      if (JACKET_TAGS.includes(tag)) {
+        nextTags = nextTags.filter((t) => !JACKET_TAGS.includes(t));
+      } else if (COLOR_TAGS.includes(tag)) {
+        nextTags = nextTags.filter((t) => !COLOR_TAGS.includes(t));
+      }
+      
+      return [...nextTags, tag];
+    });
   };
 
-  const filteredProjects = MOCK_PROJECTS.filter((project) =>
-    selectedTags.every((tag) => project.tags.includes(tag))
-  );
+  useEffect(() => {
+    const filtered = MOCK_PROJECTS.filter((project) =>
+      selectedTags.every((tag) => project.tags.includes(tag))
+    );
+    // Fisher-Yates-like random sort
+    const shuffled = [...filtered].sort(() => Math.random() - 0.5);
+    setShuffledProjects(shuffled);
+  }, [selectedTags]);
 
   return (
     <main className="min-h-screen bg-[#f5f3ee] text-[#111111] flex flex-col">
@@ -110,8 +682,8 @@ export default function ProjectsPage() {
           Projects
         </h1>
 
-        <div className="mb-12 md:mb-16">
-          <div className="flex items-center gap-3 overflow-x-auto pb-4 hide-scrollbar">
+        <div className="mb-12 md:mb-16 space-y-4">
+          <div className="flex items-center gap-3 overflow-x-auto pb-2 hide-scrollbar">
             <button
               onClick={() => setSelectedTags([])}
               className={`whitespace-nowrap px-5 py-2 text-[11px] md:text-xs uppercase tracking-[0.2em] transition-all border rounded-full
@@ -124,7 +696,28 @@ export default function ProjectsPage() {
             >
               {t.allBtn}
             </button>
-            {ALL_TAGS.map((tag) => {
+            {COLOR_TAGS.map((tag) => {
+              const isSelected = selectedTags.includes(tag);
+              return (
+                <button
+                  key={tag}
+                  onClick={() => toggleTag(tag)}
+                  className={`whitespace-nowrap px-5 py-2 text-[11px] md:text-xs uppercase tracking-[0.2em] transition-all border rounded-full
+                    ${
+                      isSelected
+                        ? "bg-black text-[#f5f3ee] border-black"
+                        : "bg-transparent text-black border-black/20 hover:border-black"
+                    }
+                  `}
+                >
+                  {tag}
+                </button>
+              );
+            })}
+          </div>
+          
+          <div className="flex items-center gap-3 overflow-x-auto pb-4 hide-scrollbar">
+            {JACKET_TAGS.map((tag) => {
               const isSelected = selectedTags.includes(tag);
               return (
                 <button
@@ -145,9 +738,9 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {filteredProjects.length > 0 ? (
+        {shuffledProjects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-12">
-            {filteredProjects.map((project) => (
+            {shuffledProjects.map((project) => (
               <div key={project.id} className="group cursor-pointer">
                 <div className="overflow-hidden bg-black/5 aspect-square mb-5">
                   <Image
