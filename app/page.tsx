@@ -31,7 +31,7 @@ export default function Home() {
     },
     ko: {
       heroSub: "사운드에 대한 높은 이해도를 바탕으로 한 정밀 프레싱",
-      heroDesc: <>챔피언 프레싱은 단순한 복제 그 이상의 가치를 추구하는<br className="hidden md:block" />레이블, 아티스트, 그리고 특별한 프로젝트를 위한 최첨단 바이닐(LP) 제조 파트너입니다.<br className="hidden md:block" />깊이 있는 리스닝 경험과 사운드 디테일에 대한 타협 없는 장인 정신을 바탕으로 완벽한 프레싱을 선사합니다.</>,
+      heroDesc: <>챔피언 프레싱은 단순한 복제 그 이상의 가치를 추구하는<br className="hidden md:block" />레이블, 아티스트, 그리고 특별한 프로젝트를 위한 최첨단 바이닐(LP) 제조 파트너입니다.<br className="hidden md:block" />깊이 있는 리스닝 경험과 사운드 디테일에 대한 확고한 장인 정신을 바탕으로 최상의 프레싱을 선사합니다.</>,
       location: "대한민국 남양주",
       focus: "사운드 정밀도 및 해상력",
       materialTitle: "핵심 소재",
