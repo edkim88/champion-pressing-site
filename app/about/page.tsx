@@ -17,6 +17,7 @@ export default function About() {
 
   const dict = {
     en: {
+      heroDesc: "Champion Pressing is a team of specialized engineers and listeners unified by one singular purpose: to produce vinyl that matches the original sonic intent without compromise.",
       originDesc1: "Champion Pressing was founded out of a profound frustration with the compromises often made in modern vinyl production. We believe that pressing a record is not merely a manufacturing step—it is the final, crucial act of mastering.",
       originDesc2: "Located in Namyangju, South Korea, our facility was engineered from the ground up to prioritize sonic fidelity over sheer volume. We combine decades of analogue tradition with highly maintained, modernized pressing machinery.",
       standardDesc1: "We are a small but highly specialized team of engineers and listeners. By keeping our operation focused, we maintain strict quality control at every phase: from test pressings to final packaging.",
@@ -26,6 +27,7 @@ export default function About() {
       backToTopBtn: "Back to Top"
     },
     ko: {
+      heroDesc: <>챔피언 프레싱은 아티스트의 본래 의도와 사운드 디테일을 타협 없이 담아낸다는 단 하나의 목표로 모인 엔지니어이자 전문 리스너들입니다.<br className="hidden md:block" />우리에게 레코드 프레싱은 단순한 물리적 복제가 아닌 음악을 가장 완전하게 기록하는 작업입니다.</>,
       originDesc1: <>챔피언 프레싱은 현대 바이닐(LP) 대량 생산 과정에서 흔히 발생하는 음질적 타협에 대한 깊은 아쉬움에서 출발했습니다.<br className="hidden md:block" />우리는 레코드를 프레싱하는 과정이 단순한 '제조'가 아니라, 음악을 완성하는 마스터링의 가장 핵심적이고 최종적인 단계라고 믿습니다.</>,
       originDesc2: <>대한민국 남양주에 위치한 우리의 팩토리는 설립 초기부터 생산량(Volume)보다 사운드의 해상력(Fidelity)을 최우선으로 고려하여 설계되었습니다.<br className="hidden md:block" />수십 년간 이어져 온 아날로그 전통의 기술력과 최상의 컨디션으로 관리되는 최신 프레싱 설비가 결합된 결과물입니다.</>,
       standardDesc1: <>챔피언 프레싱은 엔지니어이자 전문 리스너들로 구성된 소수 정예 팀입니다.<br className="hidden md:block" />운영 규모를 무리하게 확장하지 않는 대신, 테스트 프레싱부터 최종 패키징에 이르는 모든 단계에서 무결점의 품질 관리를 유지합니다.</>,
@@ -45,18 +47,23 @@ export default function About() {
       </section>
 
       {/* ABOUT HERO */}
-      <section className="px-7 md:px-10 py-12 md:py-20">
+      <section className="px-7 md:px-10 pt-20 md:pt-[15vh] pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto">
           <p className="mb-6 md:mb-8 text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/38">
             Who We Are
           </p>
-          <h1 className="text-[12vw] md:text-[8vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase mb-16 md:mb-24">
+          <h1 className="text-[11vw] md:text-[6.5vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase mb-12 md:mb-16">
             Beyond
             <br />
             Reproduction.
             <br />
             The New Standard.
           </h1>
+          <div className="max-w-3xl">
+            <p className="text-lg md:text-xl leading-relaxed text-black/70 break-keep">
+              {t.heroDesc}
+            </p>
+          </div>
         </div>
       </section>
 

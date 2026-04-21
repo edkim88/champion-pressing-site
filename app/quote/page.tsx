@@ -123,7 +123,7 @@ export default function QuotePage() {
       basedOnSuffix: "장 기준",
       noticesTitle: "Notices",
       notice1: "본 견적은 '바이닐 알판(Record Pressing)' 및 '풀 컬러 라벨 인쇄(Center Labels)'가 포함된 기준가입니다.",
-      notice2: "바이닐 마스터링(커팅), 인쇄물(자켓, 인서트 등) 및 부가세(VAT)는 본 견적에 포함되어 있지 않습니다.",
+      notice2: "바이닐 마스터링, 인쇄물(자켓, 인서트 등) 및 부가세(VAT)는 본 견적에 포함되어 있지 않습니다.",
       notice3: "선택하시는 세부 사양 및 컬러 배합에 따라 최종 단가가 변동될 수 있습니다. 보다 정확한 산출을 원하시면 담당자에게 문의해 주십시오.",
       inquiryTitle: "프로젝트 시작하기",
       inquiryDesc: "위 계산기를 통해 대략적인 예산을 확인하셨다면, 이제 저희와 함께 솔루션을 완성할 차례입니다. 맞춤형 패키지 옵션과 구체적인 생산 일정을 조율하기 위해 아래 폼을 가볍게 작성해 주세요.",

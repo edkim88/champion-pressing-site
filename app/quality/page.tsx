@@ -19,6 +19,7 @@ export default function QualityPage() {
 
   const dict = {
     en: {
+      heroDesc: "Quality is not simply a mechanical process of filtering out defects. We approach analog sound with an obsessive dedication to its purest form, starting from the very foundation of our acoustic environment. By combining world-class monitoring transparency with our proprietary material, we overcome the traditional physical limits of vinyl. Driven by a singular goal to deliver the ultimate listening experience, Champion Pressing proves its standard through an uncompromising commitment to fidelity.",
       qual1Desc: "We operate within a world-class monitoring environment anchored by the Genelec 8381A flagship system. This allows us to perform vinyl mastering and test-pressing evaluations with unparalleled resolution.",
       qual2Desc: "We don't settle for off-the-shelf solutions. Champion Pressing utilizes a proprietary PVC compound developed in-house to ensure the lowest possible noise floor and maximum signal fidelity.",
       qual3Desc: "From the sonic depth of mastering to the tactile precision of pressing — we see every record through the eyes of the creator, ensuring your artistic intent is never lost in translation.",
@@ -26,6 +27,7 @@ export default function QualityPage() {
       backToTopBtn: "Back to Top"
     },
     ko: {
+      heroDesc: <>품질은 단순히 불량품을 걸러내는 기계적인 공정이 아닙니다.<br className="hidden md:block" />우리는 아날로그 사운드의 가장 아름다운 질감을 유지하기 위해, 청취 환경을 설계하는 가장 기초적인 단계부터 집요하게 다가갑니다.<br className="hidden md:block" />최상의 모니터링 시스템을 통해 소리의 투명함을 보존하고, 오랜 연구 끝에 완성한 자체 배합 특수 소재로 물리적인 한계를 극복합니다.<br className="hidden md:block" />청취자에게 가장 완벽한 음향적 경험을 전달한다는 목적 하나로, 우리는 매 순간 타협 없는 퀄리티를 증명해 나가고 있습니다.</>,
       qual1Desc: <>우리는 Genelec 8381A 플래그십 시스템을 주축으로 한 세계 최고 수준의 어쿠스틱 모니터링 환경을 완벽히 구축하여 운용하고 있습니다.<br className="hidden md:block" />이는 단순한 청취를 넘어, 바이닐 마스터링 커팅 단계부터 테스트 프레싱(TP)의 극히 미세한 결함까지 전례 없는 압도적인 해상도로 점검할 수 있게 해줍니다. 현존하는 가장 투명한 사운드 스테이지 위에서 여러분의 마스터가 레코드로 안전하게 전환됩니다.</>,
       qual2Desc: <>기존의 기성 솔루션이나 보편적인 소재에 절대 타협하지 않습니다. 최상의 사운드 해상도를 구현하기 위해, 챔피언 프레싱은 무려 3년이라는 긴 연구 개발(R&D) 기간을 투자하여 오디오파일 그레이드의 특수 PVC 컴파운드(Compound) 배합을 독자적으로 완성했습니다.<br className="hidden md:block" />이는 일반적인 프레싱 대비 노이즈 플로어(Noise Floor)를 극한으로 낮추고, 아주 미세한 베이스의 질감부터 고음역대의 섬세한 뉘앙스까지 시그널의 원음 보존력(Fidelity)을 극대화합니다. 타협 없는 소재의 차이가 만들어내는 압도적인 청각적 쾌감을 경험해 보십시오.</>,
       qual3Desc: <>마스터링 단계에서 다뤄지는 음향적 깊이(Depth)부터 프레싱 공정 후 느껴지는 물리적인 정밀함과 질감까지 — 우리는 단순한 제조자의 입장이 아닌 완벽함을 추구하는 '창작자'의 시선으로 모든 레코드를 철저하게 마주합니다.<br className="hidden md:block" />당신의 음악적 철학과 예술적 의도가 단 1%의 왜곡이나 손실 없이 가장 완벽한 형태의 물리적 매체로 실현되도록 끝까지 책임집니다.</>,
@@ -43,16 +45,21 @@ export default function QualityPage() {
       </section>
 
       {/* HERO SECTION */}
-      <section className="px-7 md:px-10 py-12 md:py-20">
+      <section className="px-7 md:px-10 pt-20 md:pt-[15vh] pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto">
           <p className="mb-6 md:mb-8 text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/38">
             Superior Standards
           </p>
-          <h1 className="text-[12vw] md:text-[8vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase mb-16 md:mb-24">
+          <h1 className="text-[11vw] md:text-[6.5vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase mb-12 md:mb-16">
             Difference
             <br />
             In Detail.
           </h1>
+          <div className="max-w-3xl">
+            <p className="text-lg md:text-xl leading-relaxed text-black/70 break-keep">
+              {t.heroDesc}
+            </p>
+          </div>
         </div>
       </section>
 

@@ -22,7 +22,7 @@ export default function Pressing() {
       p2Desc: "The cut lacquer master is electroplated with silver and nickel to create the metal stampers used for production. This requires a strictly controlled, dust-free environment, as even microscopic imperfections directly translate to surface noise.",
       p3Desc: "Stampers are loaded into the press, shaping PVC pellets under extreme heat and pressure. Before full production, we extract Test Pressings (TPs). Our consultants and artists listen together to rigorously check for pops, distortion, and dynamic integrity.",
       p4Desc: "The physical presentation is just as important as the sound. We meticulously inspect the color accuracy, paper stock, and finish of your sleeves. Finally, the records are carefully packaged and safely delivered to your hands.",
-      closeDesc: "12-inch or 7-inch? 33 RPM or 45 RPM? Let us guide you to the format that best serves your music.",
+      closeDesc: "12-inch? 33 RPM or 45 RPM? Let us guide you to the format that best serves your music.",
       makeQuoteBtn: "Make a Quote",
       backToTopBtn: "Back to Top"
     },
@@ -32,7 +32,7 @@ export default function Pressing() {
       p2Desc: <>커팅이 완료된 래커 마스터(Lacquer Master) 표면에 은과 니켈을 전기도금하여 실제 프레싱에 사용될 메탈 스탬퍼(Metal Stampers)를 생성합니다.<br className="hidden md:block" />미세한 먼지나 결함조차 표면 노이즈로 직결되기 때문에, 모든 과정은 엄격하게 통제된 무결점 환경에서 진행됩니다.</>,
       p3Desc: <>스탬퍼가 프레스기에 장착되고, 극도의 열과 압력을 가해 PVC 펠릿을 형태화합니다.<br className="hidden md:block" />본 생산에 앞서 테스트 프레싱(TP) 공정을 필수적으로 거치며, 전문 컨설턴트와 아티스트가 함께 청취하여 팝 노이즈, 디스토션, 다이내믹 무결성 등을 철저하게 검증합니다.</>,
       p4Desc: <>피지컬 매체의 시각적 완성도는 사운드만큼이나 중요합니다.<br className="hidden md:block" />재킷 스펙의 컬러 정확도, 지류(Paper Stock)의 질감, 인쇄 마감 상태를 집요하게 인스펙션합니다.<br className="hidden md:block" />이 모든 과정을 거친 레코드는 가장 안전하게 패키징되어 당신의 손으로 직접 배송됩니다.</>,
-      closeDesc: <>12인치가 좋을까요, 7인치가 맞을까요?<br />33 RPM과 45 RPM 중 어느 포맷이 당신의 음악적 의도를 더 완벽하게 살릴 수 있을까요?<br />챔피언 프레싱의 전문가들이 올바른 해답을 찾아드립니다.</>,
+      closeDesc: <>33 RPM과 45 RPM 중 어느 포맷이 당신의 음악적 의도를 더 완벽하게 살릴 수 있을까요?<br />챔피언 프레싱의 전문가들이 올바른 해답을 찾아드립니다.</>,
       makeQuoteBtn: "Make a Quote",
       backToTopBtn: "Back to Top"
     }
@@ -74,12 +74,12 @@ export default function Pressing() {
       </section>
 
       {/* HERO SECTION */}
-      <section className="px-7 md:px-10 py-12 md:py-20">
+      <section className="px-7 md:px-10 pt-20 md:pt-[15vh] pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto">
           <p className="mb-6 md:mb-8 text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/38">
             The Process
           </p>
-          <h1 className="text-[12vw] md:text-[8vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase mb-12 md:mb-16">
+          <h1 className="text-[11vw] md:text-[6.5vw] leading-[0.88] font-semibold tracking-[-0.06em] uppercase mb-12 md:mb-16">
             From Master.
             <br />
             To Groove.
@@ -87,7 +87,7 @@ export default function Pressing() {
             To Reality.
           </h1>
           <div className="max-w-3xl">
-            <p className="text-base md:text-lg leading-relaxed text-black/70 break-keep">
+            <p className="text-lg md:text-xl leading-relaxed text-black/70 break-keep">
               {t.heroDesc}
             </p>
           </div>

@@ -67,7 +67,7 @@ export default function Home() {
 
             <div className="mt-10 md:mt-14 grid md:grid-cols-12 gap-6">
               <div className="md:col-span-7">
-                <p className="max-w-2xl text-base md:text-lg leading-relaxed text-black/70 break-keep">
+                <p className="max-w-2xl text-lg md:text-xl leading-relaxed text-black/70 break-keep">
                   {t.heroDesc}
                 </p>
                 <div className="mt-8 md:mt-10">
@@ -122,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* BIG IMAGE & REMAINING SECTIONS */}
-      <section className="px-7 md:px-10 py-24 md:py-32">
+      <section className="px-7 md:px-10 py-12 md:py-20">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10 md:mb-14 overflow-hidden bg-black/5">
             <Image
@@ -134,7 +134,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="grid md:grid-cols-12 gap-8 items-start mb-20 md:mb-28">
+          <div className="grid md:grid-cols-12 gap-8 items-start mb-12 md:mb-20">
             <div className="md:col-span-3">
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/35">Philosophy</p>
             </div>
@@ -148,7 +148,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-20 md:mb-28">
+          <div className="grid md:grid-cols-3 gap-6 mb-12 md:mb-20">
             <div className="overflow-hidden bg-black/5">
               <Image src="/images/impression-01.jpeg" alt="1" width={1600} height={2000} className="w-full h-[320px] md:h-[420px] object-cover transition duration-700 hover:scale-[1.03]" />
             </div>
@@ -160,7 +160,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="my-20 md:my-32">
+          <div className="my-12 md:my-20">
             <div className="max-w-4xl">
               <p className="text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/35 mb-6">Craftsmanship</p>
               <h3 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight">
@@ -169,7 +169,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-20 md:mb-28">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-20">
             <div className="overflow-hidden bg-black/5">
               <Image src="/images/impression-04.jpeg" alt="4" width={1600} height={1200} className="w-full h-[320px] md:h-[560px] object-cover transition duration-700 hover:scale-[1.03]" />
             </div>

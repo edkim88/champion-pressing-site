@@ -629,6 +629,7 @@ const JACKET_TAGS = [
 export default function ProjectsPage() {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [shuffledProjects, setShuffledProjects] = useState(MOCK_PROJECTS);
+  const [selectedProject, setSelectedProject] = useState<typeof MOCK_PROJECTS[0] | null>(null);
   const { language } = useLanguage();
 
   const dict = {
@@ -683,10 +684,10 @@ export default function ProjectsPage() {
         </h1>
 
         <div className="mb-12 md:mb-16 space-y-4">
-          <div className="flex items-center gap-3 overflow-x-auto pb-2 hide-scrollbar">
+          <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-2 hide-scrollbar">
             <button
               onClick={() => setSelectedTags([])}
-              className={`whitespace-nowrap px-5 py-2 text-[11px] md:text-xs uppercase tracking-[0.2em] transition-all border rounded-full
+              className={`whitespace-nowrap px-4 py-1.5 md:px-5 md:py-2 text-[10px] md:text-xs uppercase tracking-[0.2em] transition-all border rounded-full
                 ${
                   selectedTags.length === 0
                     ? "bg-black text-[#f5f3ee] border-black"
@@ -702,7 +703,7 @@ export default function ProjectsPage() {
                 <button
                   key={tag}
                   onClick={() => toggleTag(tag)}
-                  className={`whitespace-nowrap px-5 py-2 text-[11px] md:text-xs uppercase tracking-[0.2em] transition-all border rounded-full
+                  className={`whitespace-nowrap px-4 py-1.5 md:px-5 md:py-2 text-[10px] md:text-xs uppercase tracking-[0.2em] transition-all border rounded-full
                     ${
                       isSelected
                         ? "bg-black text-[#f5f3ee] border-black"
@@ -716,14 +717,14 @@ export default function ProjectsPage() {
             })}
           </div>
           
-          <div className="flex items-center gap-3 overflow-x-auto pb-4 hide-scrollbar">
+          <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-4 hide-scrollbar">
             {JACKET_TAGS.map((tag) => {
               const isSelected = selectedTags.includes(tag);
               return (
                 <button
                   key={tag}
                   onClick={() => toggleTag(tag)}
-                  className={`whitespace-nowrap px-5 py-2 text-[11px] md:text-xs uppercase tracking-[0.2em] transition-all border rounded-full
+                  className={`whitespace-nowrap px-4 py-1.5 md:px-5 md:py-2 text-[10px] md:text-xs uppercase tracking-[0.2em] transition-all border rounded-full
                     ${
                       isSelected
                         ? "bg-black text-[#f5f3ee] border-black"
@@ -741,14 +742,14 @@ export default function ProjectsPage() {
         {shuffledProjects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-12">
             {shuffledProjects.map((project) => (
-              <div key={project.id} className="group cursor-pointer">
-                <div className="overflow-hidden bg-black/5 aspect-square mb-5">
+              <div key={project.id} className="group cursor-pointer" onClick={() => setSelectedProject(project)}>
+                <div className="overflow-hidden bg-black/5 aspect-square mb-5 flex items-center justify-center">
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={800}
                     height={800}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    className="w-full h-full object-cover mix-blend-darken scale-[1.15] transition-transform duration-700 group-hover:scale-[1.18]"
                   />
                 </div>
                 
@@ -803,6 +804,55 @@ export default function ProjectsPage() {
           scrollbar-width: none;
         }
       `}} />
+
+      {/* Modal */}
+      {selectedProject && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center p-6 md:p-12 bg-[#f5f3ee]/90 backdrop-blur-sm transition-all duration-300"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div 
+            className="relative w-full max-w-2xl flex flex-col items-center justify-center animate-in fade-in zoom-in-95 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="absolute -top-12 right-0 flex items-center justify-center w-10 h-10 text-black/50 hover:text-black transition-colors"
+              onClick={() => setSelectedProject(null)}
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            <div className="relative w-full shadow-2xl bg-black/5 flex items-center justify-center overflow-hidden aspect-square">
+              <Image
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                width={1200}
+                height={1200}
+                className="w-full h-full object-contain mix-blend-darken scale-[1.05]"
+                priority
+              />
+            </div>
+            <div className="w-full mt-6 text-center">
+              <h2 className="text-2xl md:text-3xl font-semibold tracking-[-0.02em] mb-2">
+                {selectedProject.title}
+              </h2>
+              <p className="text-base text-black/60 mb-4">{selectedProject.artist}</p>
+              <div className="flex flex-wrap justify-center gap-2">
+                {selectedProject.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] md:text-[11px] uppercase tracking-[0.1em] text-black/50 border border-black/15 px-3 py-1.5 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
