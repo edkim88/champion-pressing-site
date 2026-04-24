@@ -193,10 +193,10 @@ export default function QuotePage() {
                   max="30000"
                   value={quantityStr}
                   onChange={handleQuantityChange}
-                  className="w-full bg-transparent border-b-2 border-black/20 focus:border-black outline-none py-4 text-3xl font-semibold transition-colors"
+                  className="w-full bg-transparent border-b-2 border-black/20 focus:border-black outline-none py-4 pr-16 md:pr-20 text-3xl font-semibold transition-colors"
                   placeholder={t.qtyPlaceholder}
                 />
-                <span className="absolute right-0 top-1/2 -translate-y-1/2 text-black/40 text-lg">
+                <span className="absolute right-7 md:right-8 top-1/2 -translate-y-1/2 text-black/40 text-lg pointer-events-none">
                   {t.qtySuffix}
                 </span>
               </div>

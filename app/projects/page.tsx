@@ -684,7 +684,7 @@ export default function ProjectsPage() {
         </h1>
 
         <div className="mb-12 md:mb-16 space-y-4">
-          <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-2 hide-scrollbar">
+          <div className="flex flex-wrap items-center gap-2 md:gap-3 pb-2">
             <button
               onClick={() => setSelectedTags([])}
               className={`whitespace-nowrap px-4 py-1.5 md:px-5 md:py-2 text-[10px] md:text-xs uppercase tracking-[0.2em] transition-all border rounded-full
@@ -717,7 +717,7 @@ export default function ProjectsPage() {
             })}
           </div>
           
-          <div className="flex items-center gap-2 md:gap-3 overflow-x-auto pb-4 hide-scrollbar">
+          <div className="flex flex-wrap items-center gap-2 md:gap-3 pb-4">
             {JACKET_TAGS.map((tag) => {
               const isSelected = selectedTags.includes(tag);
               return (
@@ -824,7 +824,10 @@ export default function ProjectsPage() {
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
-            <div className="relative w-full shadow-2xl bg-black/5 flex items-center justify-center overflow-hidden aspect-square">
+            <div 
+              className="relative w-full shadow-2xl bg-black/5 flex items-center justify-center overflow-hidden aspect-square cursor-pointer"
+              onClick={() => setSelectedProject(null)}
+            >
               <Image
                 src={selectedProject.image}
                 alt={selectedProject.title}
