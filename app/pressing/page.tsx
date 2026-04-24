@@ -74,7 +74,7 @@ export default function Pressing() {
       </section>
 
       {/* HERO SECTION */}
-      <section className="px-7 md:px-10 pt-20 md:pt-[15vh] pb-16 md:pb-24">
+      <section className="px-7 md:px-10 pt-16 md:pt-[10vh] pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto">
           <p className="mb-6 md:mb-8 text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/38">
             The Process

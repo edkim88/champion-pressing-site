@@ -48,12 +48,14 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#f5f3ee] text-[#111111] overflow-hidden">
       {/* HERO SECTION */}
-      <section className="relative min-h-screen px-7 md:px-10 py-8 flex flex-col justify-between">
+      <section className="relative min-h-screen flex flex-col">
         {/* NAVIGATION */}
-        <Header />
+        <div className="px-7 md:px-10 pt-8 pb-4 z-20 relative">
+          <Header />
+        </div>
 
         {/* HERO CONTENT */}
-        <div className="relative flex-1 flex items-center z-10">
+        <div className="px-7 md:px-10 pt-16 md:pt-[10vh] relative flex-1 z-10">
           <div className="max-w-7xl w-full">
             <p className="mb-6 md:mb-8 text-[10px] md:text-[11px] uppercase tracking-[0.28em] text-black/38">
               {t.heroSub}
@@ -115,7 +117,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/28 relative z-20">
+        <div className="px-7 md:px-10 pb-8 mt-auto flex items-center justify-between text-[10px] md:text-xs uppercase tracking-[0.28em] text-black/28 relative z-20">
           <span>Scroll</span>
           <span>CHAMPION PRESSING 2026. ALL RIGHTS RESERVED.</span>
         </div>
