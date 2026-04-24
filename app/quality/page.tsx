@@ -27,10 +27,10 @@ export default function QualityPage() {
       backToTopBtn: "Back to Top"
     },
     ko: {
-      heroDesc: <>품질은 단순히 불량품을 걸러내는 수동적인 공정이 아닙니다.<br className="hidden md:block" />우리는 아날로그 사운드의 고유한 질감을 유지하기 위해, 청취 환경을 설계하는 기초 단계부터 치밀하게 다가갑니다.<br className="hidden md:block" />최상의 모니터링 시스템을 통해 소리의 투명함을 보존하고, 오랜 연구 끝에 완성한 자체 배합 소재로 매체의 한계를 극복합니다.<br className="hidden md:block" />청취자에게 가장 깊이 있는 음향적 경험을 전달하기 위해, 우리는 매 순간 챔피언 프레싱만의 기준을 증명해 나가고 있습니다.</>,
-      qual1Desc: <>우리는 Genelec 8381A 플래그십 시스템을 주축으로 한 세계 최고 수준의 어쿠스틱 모니터링 환경을 정밀하게 구축하여 운용하고 있습니다.<br className="hidden md:block" />이는 단순한 청취를 넘어, 마스터링 커팅 단계부터 테스트 프레싱(TP)의 극히 미세한 부분까지 예리한 해상도로 점검하게 해줍니다. 가장 투명하게 설계된 사운드 스테이지 위에서 여러분의 음원은 가장 안전하게 변환됩니다.</>,
-      qual2Desc: <>기존의 기성 솔루션이나 보편적인 소재에 안주하지 않습니다. 최상의 소리를 구현하기 위해, 챔피언 프레싱은 3년이 넘는 연구 개발(R&D)을 통해 오디오파일 그레이드의 특수 PVC 컴파운드(Compound) 배합을 독자적으로 완성했습니다.<br className="hidden md:block" />이는 일반적인 프레싱 대비 노이즈 플로어(Noise Floor)를 비약적으로 낮추고, 무거운 베이스부터 고음역대의 섬세한 뉘앙스까지 시그널의 원음 보존력(Fidelity)을 극대화합니다. 소재의 미세한 결이 만들어내는 청각적 차이를 직접 경험해 보십시오.</>,
-      qual3Desc: <>마스터링 단계에서 다뤄지는 음향적 깊이(Depth)부터 프레싱 이후 느껴지는 물리적인 정밀함까지 — 우리는 단순한 제조자를 넘어선 '창작자'의 시선으로 레코드를 마주합니다.<br className="hidden md:block" />당신의 음악적 철학과 예술적 의도가 왜곡 없이 온전한 형태로 실현될 수 있도록 끝까지 책임집니다.</>,
+      heroDesc: <>품질 관리는 단순히 불량품을 걸러내는 수동적인 공정이 아닙니다.<br className="hidden md:block" />우리는 아날로그 사운드의 고유한 질감을 본질적으로 유지하기 위해,<br className="hidden md:block" />청취 환경을 설계하는 기초 단계부터 매우 치밀하게 다가갑니다.<br className="hidden md:block" />최상의 모니터링 시스템을 통해 소리의 투명함을 보존하고,<br className="hidden md:block" />자체 배합 소재로 매체의 물리적 한계를 극복합니다.</>,
+      qual1Desc: <>우리는 Genelec 8381A 플래그십 시스템을 주축으로 한<br className="hidden md:block" />세계 최고 수준의 어쿠스틱 모니터링 환경을 정밀하게 구축하여 운용합니다.<br className="hidden md:block" />이는 단순한 청취를 넘어, 마스터링 커팅 단계부터 테스트 프레싱(TP)의<br className="hidden md:block" />극히 미세한 포인트까지 예리한 해상도로 점검할 수 있게 해줍니다.<br className="hidden md:block" />가장 투명하게 설계된 스테이지 위에서 여러분의 음원은 가장 완전하게 변환됩니다.</>,
+      qual2Desc: <>보편적인 기성 솔루션이나 평범한 소재에 안주하지 않습니다.<br className="hidden md:block" />최상의 퀄리티를 구현하기 위해, 챔피언 프레싱은 오랜 연구 개발(R&D)을 거쳐<br className="hidden md:block" />오디오파일 그레이드의 특수 PVC 컴파운드를 독자적으로 완성했습니다.<br className="hidden md:block" />이는 일반적인 프레싱 대비 노이즈 플로어(Noise Floor)를 비약적으로 낮추고,<br className="hidden md:block" />시그널의 원음 보존력을 극대화하여 깊이감 있는 청각적 차이를 만들어냅니다.</>,
+      qual3Desc: <>마스터링 단계에서 다루어지는 음향적 깊이(Depth)부터<br className="hidden md:block" />프레싱 이후 느껴지는 물리적인 정밀함까지 —<br className="hidden md:block" />우리는 단순한 제조자를 넘어선 '창작자'의 시선으로 레코드를 마주합니다.<br className="hidden md:block" />아티스트의 철학과 예술적 의도가<br className="hidden md:block" />디스크 위에 생생하고 온전하게 새겨질 수 있도록 끝까지 책임집니다.</>,
       makeQuoteBtn: "Make a Quote",
       backToTopBtn: "Back to Top"
     }

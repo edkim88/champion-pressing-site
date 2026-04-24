@@ -27,11 +27,11 @@ export default function Pressing() {
       backToTopBtn: "Back to Top"
     },
     ko: {
-      heroDesc: <>바이닐(LP) 생산은 사운드를 아날로그 매체로 정교하게 옮겨 담는 매우 섬세한 여정입니다.<br className="hidden md:block" />챔피언 프레싱의 전문 컨설턴트들은 마스터링 스튜디오부터 최종 납품에 이르기까지 아티스트와 긴밀히 소통하여, 당신이 의도한 음향적 질감이 레코드 그루브 안에 고스란히 담길 수 있도록 까다롭게 검수합니다.</>,
-      p1Desc: <>디지털 또는 아날로그 마스터 음원이 처음으로 그루브의 형태를 갖추는 가장 결정적인 단계입니다.<br className="hidden md:block" />우리는 전문 커팅 엔지니어와의 긴밀한 협력을 통해, 레코드 포맷에서 요구되는 라우드니스(음압), 다이내믹스, 주파수 밸런스가 이상적으로 구현되도록 세팅합니다.</>,
-      p2Desc: <>커팅이 완료된 래커 마스터(Lacquer Master) 표면에 은과 니켈을 전기도금하여 실제 프레싱에 사용될 메탈 스탬퍼(Metal Stampers)를 생성합니다.<br className="hidden md:block" />미세한 먼지나 결함조차 표면 노이즈로 직결되기 때문에, 모든 과정은 엄격하게 통제된 무결점 환경에서 진행됩니다.</>,
-      p3Desc: <>스탬퍼가 프레스기에 장착되고, 극도의 열과 압력을 가해 PVC 펠릿을 형태화합니다.<br className="hidden md:block" />본 생산에 앞서 테스트 프레싱(TP) 공정을 필수적으로 거치며, 전문 컨설턴트와 아티스트가 함께 청취하여 팝 노이즈, 디스토션, 다이내믹 무결성 등을 철저하게 검증합니다.</>,
-      p4Desc: <>피지컬 매체의 시각적 완성도는 사운드만큼이나 중요합니다.<br className="hidden md:block" />재킷 스펙의 컬러 정확도, 지류(Paper Stock)의 질감, 인쇄 마감 상태를 집요하게 인스펙션합니다.<br className="hidden md:block" />이 모든 과정을 거친 레코드는 가장 안전하게 패키징되어 당신의 손으로 직접 배송됩니다.</>,
+      heroDesc: <>바이닐(LP) 생산은 사운드를 특수한 아날로그 매체로<br className="hidden md:block" />정교하게 옮겨 담는 매우 섬세한 물리적 여정입니다.<br className="hidden md:block" />챔피언 프레싱의 전문 컨설턴트들은 마스터링 단계부터 최종 납품까지<br className="hidden md:block" />아티스트가 기획한 음향적 질감이 그루브에 오롯이 담기도록 까다롭게 검수합니다.</>,
+      p1Desc: <>디지털 또는 아날로그 마스터 음원이 처음으로<br className="hidden md:block" />물리적 그루브의 형태를 갖추는 가장 결정적인 단계입니다.<br className="hidden md:block" />우리는 전문 커팅 엔지니어와의 긴밀한 협력을 통해, 아날로그 포맷이 요구하는<br className="hidden md:block" />라우드니스(음압), 다이내믹스, 주파수 밸런스가 완벽하게 구현되도록 조율합니다.</>,
+      p2Desc: <>커팅이 완료된 래커 마스터(Lacquer) 표면에 은과 니켈을 전기도금하여<br className="hidden md:block" />실제 대량 프레싱에 사용될 메탈 스탬퍼(Metal Stamper)를 생성합니다.<br className="hidden md:block" />극도로 미세한 먼지나 결함조차도 표면 노이즈(Surface Noise)로 직결되기에,<br className="hidden md:block" />모든 관련 공정은 엄격하게 통제된 무결점 환경에서 이루어집니다.</>,
+      p3Desc: <>메탈 스탬퍼가 프레스 기계에 장착되고,<br className="hidden md:block" />극한의 열과 압력을 가해 배합된 PVC 펠릿을 디스크 형태로 빚어냅니다.<br className="hidden md:block" />본 생산에 앞서 테스트 프레싱(TP) 공정을 의무적으로 거치게 되며,<br className="hidden md:block" />팝 노이즈, 디스토션, 다이내믹 무결성 등을 전문 컨설턴트가 철저하게 검증합니다.</>,
+      p4Desc: <>피지컬 매체의 특성상 시각적 완성도는 사운드만큼이나 중요합니다.<br className="hidden md:block" />재킷 스펙의 컬러와 해상도, 지류(Paper Stock)의 질감, 인쇄 마감을 집요하게 점검합니다.<br className="hidden md:block" />모든 인스펙션 과정을 통과한 레코드는 가장 단단하고 안전하게 패키징되어<br className="hidden md:block" />의뢰하신 여러분의 손끝으로 신속하고 정확하게 배송됩니다.</>,
       closeDesc: <>33 RPM과 45 RPM 중 어느 포맷이 당신의 음악적 의도를 더 섬세하게 살릴 수 있을까요?<br />챔피언 프레싱의 전문가들이 명확한 솔루션을 제시해 드립니다.</>,
       makeQuoteBtn: "Make a Quote",
       backToTopBtn: "Back to Top"
