@@ -31,14 +31,14 @@ export default function Home() {
     },
     ko: {
       heroSub: "사운드에 대한 높은 이해도를 바탕으로 한 정밀 프레싱",
-      heroDesc: <>챔피언 프레싱은 단순한 복제 그 이상의 가치를 추구하는<br className="hidden md:block" />모든 아티스트와 레이블을 위한 프리미엄 바이닐(LP) 제조 파트너입니다.<br className="hidden md:block" />사운드 디테일에 대한 확고한 장인 정신을 바탕으로<br className="hidden md:block" />가장 깊이 있는 리스닝 경험과 최상의 프레싱을 선사합니다.</>,
+      heroDesc: <>챔피언 프레싱은 단순한 복제 그 이상의 가치를 추구하는 <br className="hidden md:block" />모든 아티스트와 레이블을 위한 프리미엄 바이닐(LP) 제조 파트너입니다. <br className="hidden md:block" />사운드 디테일에 대한 확고한 장인 정신을 바탕으로 <br className="hidden md:block" />가장 깊이 있는 리스닝 경험과 최상의 프레싱을 선사합니다.</>,
       location: "대한민국 남양주",
       focus: "사운드 정밀도 및 해상력",
       materialTitle: "핵심 소재",
       materialDesc: "자체 배합 프리미엄 PVC",
       approach: "정밀 공정 및 청취 검수",
-      philDesc: <>소량 한정판부터 대규모 프로덕션까지, 챔피언 프레싱은 규모와 타협하지 않습니다.<br className="hidden md:block" />모든 레코드를 동일한 규율, 감각, 그리고 사운드 디테일에 대한 집요한 집중력으로 완성합니다.</>,
-      footerDesc: <>프레싱은 단순한 제조 공정이 아닙니다.<br className="hidden md:block" />레코드에 담긴 음악이 대중에게 어떻게 이해될지 결정하는 가장 중요한 마지막 무대입니다.</>,
+      philDesc: <>소량 한정판부터 대규모 프로덕션까지, 챔피언 프레싱은 규모와 타협하지 않습니다. <br className="hidden md:block" />모든 레코드를 동일한 규율, 감각, 그리고 사운드 디테일에 대한 집요한 집중력으로 완성합니다.</>,
+      footerDesc: <>프레싱은 단순한 제조 공정이 아닙니다. <br className="hidden md:block" />레코드에 담긴 음악이 대중에게 어떻게 이해될지 결정하는 가장 중요한 마지막 무대입니다.</>,
       makeQuoteBtn: "Make a Quote",
       backToTopBtn: "Back to Top"
     }

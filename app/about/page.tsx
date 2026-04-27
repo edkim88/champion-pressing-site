@@ -27,12 +27,12 @@ export default function About() {
       backToTopBtn: "Back to Top"
     },
     ko: {
-      heroDesc: <>챔피언 프레싱은 아티스트의 본래 의도와 사운드 디테일을 온전히 담아낸다는<br className="hidden md:block" />단 하나의 목표로 모인 엔지니어이자 전문 리스너 그룹입니다.<br className="hidden md:block" />우리에게 레코드 프레싱은 단순한 기계적 제조가 아닌<br className="hidden md:block" />가장 완벽하게 음악을 기록하는 작업입니다.</>,
-      originDesc1: <>챔피언 프레싱은 현대 바이닐(LP) 대량 생산 과정에서 흔히 발견되는<br className="hidden md:block" />음질적 타협과 한계에 대한 깊은 아쉬움에서 출발했습니다.<br className="hidden md:block" />우리는 레코드 프레싱 과정이 단순한 '제조'가 아니라,<br className="hidden md:block" />음악을 완성하는 마스터링의 가장 핵심적이고 최종적인 단계라 믿습니다.</>,
-      originDesc2: <>대한민국 남양주에 위치한 우리의 팩토리는 설립 초기부터<br className="hidden md:block" />생산량(Volume)보다 사운드의 해상력(Fidelity)을 최우선으로 설계되었습니다.<br className="hidden md:block" />수십 년간 이어져 온 아날로그 전통의 집약된 기술력과<br className="hidden md:block" />최상의 컨디션으로 관리되는 첨단 설비가 결합된 결과물입니다.</>,
-      standardDesc1: <>챔피언 프레싱은 엔지니어이자 전문 리스너들로 구성된 소수 정예 팀입니다.<br className="hidden md:block" />기계적인 외형 규모를 무리하게 확장하지 않는 대신,<br className="hidden md:block" />테스트 프레싱부터 최종 패키징에 이르는 전 과정에서<br className="hidden md:block" />오직 무결점의 품질 관리에만 온전히 매진합니다.</>,
-      standardDesc2: <>첫 데뷔 EP를 준비하는 독립 아티스트부터 클래식 명반의 헤리티지 레이블까지,<br className="hidden md:block" />레코드를 대하는 우리의 철학은 완벽하게 동일합니다.<br className="hidden md:block" />엄격한 정밀도, 투명한 커뮤니케이션, 그리고<br className="hidden md:block" />그루브에 새겨지는 음악에 대한 깊은 존중입니다.</>,
-      readyDesc: <>여러분의 다음 프로젝트에 대한 이야기를 들려주세요.<br className="hidden md:block" />치열하게 고민한 사운드를 매력적인 실체로 완성해 드립니다.</>,
+      heroDesc: <>챔피언 프레싱은 아티스트의 본래 의도와 사운드 디테일을 온전히 담아낸다는 <br className="hidden md:block" />단 하나의 목표로 모인 엔지니어이자 전문 리스너 그룹입니다. <br className="hidden md:block" />우리에게 레코드 프레싱은 단순한 기계적 제조가 아닌 <br className="hidden md:block" />가장 완벽하게 음악을 기록하는 작업입니다.</>,
+      originDesc1: <>챔피언 프레싱은 현대 바이닐(LP) 대량 생산 과정에서 흔히 발견되는 <br className="hidden md:block" />음질적 타협과 한계에 대한 깊은 아쉬움에서 출발했습니다. <br className="hidden md:block" />우리는 레코드 프레싱 과정이 단순한 '제조'가 아니라, <br className="hidden md:block" />음악을 완성하는 마스터링의 가장 핵심적이고 최종적인 단계라 믿습니다.</>,
+      originDesc2: <>대한민국 남양주에 위치한 우리의 팩토리는 설립 초기부터 <br className="hidden md:block" />생산량(Volume)보다 사운드의 해상력(Fidelity)을 최우선으로 설계되었습니다. <br className="hidden md:block" />수십 년간 이어져 온 아날로그 전통의 집약된 기술력과 <br className="hidden md:block" />최상의 컨디션으로 관리되는 첨단 설비가 결합된 결과물입니다.</>,
+      standardDesc1: <>챔피언 프레싱은 엔지니어이자 전문 리스너들로 구성된 소수 정예 팀입니다. <br className="hidden md:block" />기계적인 외형 규모를 무리하게 확장하지 않는 대신, <br className="hidden md:block" />테스트 프레싱부터 최종 패키징에 이르는 전 과정에서 <br className="hidden md:block" />오직 무결점의 품질 관리에만 온전히 매진합니다.</>,
+      standardDesc2: <>첫 데뷔 EP를 준비하는 독립 아티스트부터 클래식 명반의 헤리티지 레이블까지, <br className="hidden md:block" />레코드를 대하는 우리의 철학은 완벽하게 동일합니다. <br className="hidden md:block" />엄격한 정밀도, 투명한 커뮤니케이션, 그리고 <br className="hidden md:block" />그루브에 새겨지는 음악에 대한 깊은 존중입니다.</>,
+      readyDesc: <>여러분의 다음 프로젝트에 대한 이야기를 들려주세요. <br className="hidden md:block" />치열하게 고민한 사운드를 매력적인 실체로 완성해 드립니다.</>,
       makeQuoteBtn: "Make a Quote",
       backToTopBtn: "Back to Top"
     }
