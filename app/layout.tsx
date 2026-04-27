@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://championpressing.com"),
   title: "Champion Pressing | 바이닐(LP) 프레싱 팩토리",
-  description: "아티스트의 본래 의도와 사운드 디테일을 온전히 담아내는 프리미엄 바이닐 레코드 제조 파트너. 대한민국 남양주 팩토리에서 최상의 퀄리티를 경험하세요.",
+  description: "사운드 디테일을 온전히 담아내는 프리미엄 바이닐(LP) 제조 파트너. 남양주 팩토리에서 최상의 프레싱 퀄리티를 경험하세요.",
   openGraph: {
     title: "Champion Pressing",
     description: "깊이 있는 리스닝 경험과 사운드 디테일에 대한 확고한 장인 정신을 바탕으로 최상의 바이닐 프레싱을 선사합니다.",
